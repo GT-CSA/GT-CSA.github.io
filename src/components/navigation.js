@@ -54,25 +54,14 @@ const NavButton = ({ name, slug, start, end }) => {
       } ${end ? styles.navEnd : ''}`}
       data-text={name}
     >
-      <Link to={`/${slug}`} activeClassName="active">
+      <Link
+        to={`/${slug}`}
+        activeClassName="active"
+        partiallyActive={slug !== ''}
+      >
         {name}
       </Link>
     </li>
-    // <Button
-    //   textTransform="uppercase"
-    //   backgroundColor="#D14E60"
-    //   _hover={{ bg: '#a32c3d' }}
-    //   color="white"
-    //   fontWeight={400}
-    //   borderLeftRadius={start ? '50px' : 0}
-    //   borderRightRadius={end ? '50px' : 0}
-    //   height="52px"
-    //   px={4}
-    //   pr={end ? 8 : undefined}
-    //   pl={start ? 8 : undefined}
-    // >
-    //   {name}
-    // </Button>
   )
 }
 
