@@ -1,17 +1,18 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
-  "private": true,
+  "name": "georgia-tech-chinese-student-association-webiste",
+  "description": "Georgia Tech CSA Website",
+  "private": false,
   "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
+  "author": "Matt Chen <github.com/fattimo>",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://github.com/GT-CSA/GT-CSA.github.io/issues"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
     "gatsby": "^4.0.0",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-react-helmet": "^5.0.0",
+    "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^4.0.0",
     "gatsby-source-contentful": "^7.0.0",
     "gatsby-transformer-sharp": "^4.0.0",
