@@ -11,16 +11,15 @@ class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     const hero = get(this, 'props.data.contentfulHomeHero')
-    console.log(hero)
-
     return (
       <Layout location={this.props.location}>
         <Hero
           image={hero.images[0].gatsbyImageData}
           title={hero.title}
           subtitle={hero.subtitle}
-          content={<HeroButton link={hero.linkSlug} text={hero.linkText} />}
-        />
+        >
+          <HeroButton link={hero.linkSlug} text={hero.linkText} />
+        </Hero>
         <ArticlePreview posts={posts} />
       </Layout>
     )

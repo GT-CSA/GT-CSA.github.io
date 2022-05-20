@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  repository_dispatch:
+    types: [contentful.deploy]
 
 jobs:
   deploy:
@@ -15,6 +16,12 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
+
+      # - name: Stall for contentful paint before updating site # possibly unneeded
+      #   uses: jakejarvis/wait-action@master
+      #   if: ${{ github.event.action === "contentful.deploy" }}
+      #   with:
+      #     time: "5m"
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -33,7 +40,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      
+
       - name: Install project dependencies
         run: yarn --prefer-offline
 
