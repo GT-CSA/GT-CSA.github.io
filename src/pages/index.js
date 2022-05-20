@@ -4,19 +4,22 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+import HeroButton from '../components/hero-button'
 import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+    const hero = get(this, 'props.data.contentfulHomeHero')
+    console.log(hero)
 
     return (
       <Layout location={this.props.location}>
         <Hero
-          image={author.heroImage.gatsbyImageData}
-          title={author.name}
-          content={author.shortBio}
+          image={hero.images[0].gatsbyImageData}
+          title={hero.title}
+          subtitle={hero.subtitle}
+          content={<HeroButton link={hero.linkSlug} text={hero.linkText} />}
         />
         <ArticlePreview posts={posts} />
       </Layout>
@@ -47,22 +50,13 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      nodes {
-        name
-        shortBio {
-          raw
-        }
-        title
-        heroImage: image {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            width: 1180
-          )
-        }
+    contentfulHomeHero {
+      title
+      subtitle
+      linkText
+      linkSlug
+      images {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
   }
