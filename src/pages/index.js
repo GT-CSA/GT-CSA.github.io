@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+import Hero from '../components/home-hero'
 import HeroButton from '../components/hero-button'
 import ArticlePreview from '../components/article-preview'
 

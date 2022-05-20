@@ -1,6 +1,5 @@
 forked from https://github.com/contentful/starter-gatsby-blog
 
-https://whitep4nth3r.com/blog/how-to-github-actions-contentful-webhooks-to-show-latest-blog-posts-readme/
 https://www.contentful.com/blog/2018/08/17/a-guide-to-creating-static-sites-with-react-gatsby-contentful-and-netlify/
 https://www.gatsbyjs.com/docs/reference/gatsby-project-structure/
 https://www.figma.com/file/KJLefrdMyclUBffCf6eSXR/Website-Design?node-id=2%3A49
@@ -79,4 +78,3 @@ Return to the [tutorial doc](https://www.contentful.com/developers/docs/tutorial
 ## Modify content and redeploy
 
 Follow this [tutorial](https://www.contentful.com/developers/docs/tutorials/general/automate-site-builds-with-webhooks/) to learn how to use webhooks to automate the process of redeploying your site after publishing new content.
-
