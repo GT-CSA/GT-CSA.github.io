@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Link } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
@@ -29,10 +29,10 @@ const Blob = ({ path, image, title }) => {
   const [viewBox, setViewBox] = useState('0 0 0 0')
   const pathElement = useRef(null)
 
-  const recalculateBoundingBox = () => {
+  useEffect(() => {
     const { x, y, width, height } = pathElement.current.getBBox()
     setViewBox(`${x} ${y} ${width} ${height}`)
-  }
+  }, [])
 
   return (
     <svg
@@ -52,7 +52,6 @@ const Blob = ({ path, image, title }) => {
         preserveAspectRatio="xMinYMin slice"
         xlinkHref={image}
         clipPath={`url('#clip-path-${title}')`}
-        onLoad={recalculateBoundingBox}
       />
     </svg>
   )
