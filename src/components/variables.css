@@ -74,6 +74,7 @@
 
   /* size */
   --size-gutter: var(--space-2xl);
+  --size-x-content: 14%;
   --size-logo: var(--space-2xl);
   --size-max-width: 100rem;
   --size-max-nav: 144px;

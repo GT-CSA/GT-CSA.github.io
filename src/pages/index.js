@@ -59,7 +59,7 @@ export const pageQuery = graphql`
         blobOnLeft
       }
     }
-    contentfulHomeHero {
+    contentfulHomeHero(id: { eq: "5b07114c-e021-5c74-92f3-284aeb432a04" }) {
       title
       subtitle
       linkText
