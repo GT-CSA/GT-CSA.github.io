@@ -5,11 +5,11 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Hero from '../components/home-hero'
 import HeroButton from '../components/hero-button'
-import ArticlePreview from '../components/article-preview'
+import HomeBlob from '../components/home-blob'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+    const blobs = get(this, 'props.data.allContentfulHomeBlob.nodes')
     const hero = get(this, 'props.data.contentfulHomeHero')
     return (
       <Layout location={this.props.location}>
@@ -20,7 +20,17 @@ class RootIndex extends React.Component {
         >
           <HeroButton link={hero.linkSlug} text={hero.linkText} />
         </Hero>
-        <ArticlePreview posts={posts} />
+        {blobs.map((blob) => (
+          <HomeBlob
+            key={blob.title}
+            title={blob.title}
+            description={blob.description}
+            slug={blob.slug}
+            path={blob.blobPath.blobPath}
+            image={blob.image.file.url}
+            blobOnLeft={blob.blobOnLeft}
+          />
+        ))}
       </Layout>
     )
   }
@@ -30,23 +40,23 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulHomeBlob(sort: { fields: [order], order: ASC }) {
       nodes {
         title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
         description {
           raw
         }
+        slug
+        image {
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          file {
+            url
+          }
+        }
+        blobPath {
+          blobPath
+        }
+        blobOnLeft
       }
     }
     contentfulHomeHero {

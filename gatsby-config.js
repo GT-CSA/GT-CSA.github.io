@@ -36,8 +36,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful Starter',
-    description: 'Official Contentful Gatsby Starter',
+    title: 'GT Chinese Student Association',
+    description:
+      'Official site of Chinese Student Association at the Georgia Institute of Technology (GT CSA)!',
   },
   plugins: [
     'gatsby-transformer-sharp',

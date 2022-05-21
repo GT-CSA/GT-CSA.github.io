@@ -1,7 +1,10 @@
 .container {
-  border-top: 1px solid var(--border);
-  font-size: var(--text-sm);
-  margin-top: var(--space-2xl);
+  border-top: 2px solid var(--primary);
+  font-family: var(--font-header);
+  font-weight: var(--semibold);
+  font-size: var(--text-lg);
+  color: var(--primary);
+  margin: var(--space-2xl) 14%;
   padding: var(--space-2xl) 0;
   text-align: right;
 }
