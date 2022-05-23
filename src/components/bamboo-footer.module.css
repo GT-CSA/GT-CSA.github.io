@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  position: relative;
+}
+
+.image-container {
+  position: absolute;
+  right: calc(var(--size-x-content) - 4.375%);
+  bottom: calc(-1 * (var(--space-2xl) + 36px));
+  z-index: -1;
+}

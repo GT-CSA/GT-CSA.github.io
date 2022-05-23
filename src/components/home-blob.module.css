@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   max-width: var(--size-max-width);
-  margin: 0 auto var(--space-4xl);
+  margin: var(--space-2xl) auto var(--space-4xl);
   padding-left: min(14%, calc(0.14 * var(--size-max-width)));
   display: flex;
   align-items: center;
@@ -14,18 +14,17 @@
   padding-right: min(14%, calc(0.14 * var(--size-max-width)));
 }
 
-.textContainer {
+.text-container {
   width: 35%;
   margin-right: 15%;
 }
 
-.onLeft .textContainer {
+.onLeft .text-container {
   margin-right: 0;
   margin-left: 15%;
 }
 
 .title {
-  font-family: var(--font-header);
   line-height: var(--loose);
 }
 
@@ -36,6 +35,7 @@
 }
 
 .link {
+  font-family: var(--font-header);
   font-weight: var(--semibold);
   font-size: var(--text-lg);
   color: var(--primary);
@@ -45,7 +45,7 @@
   text-decoration: underline;
 }
 
-.imageContainer {
+.image-container {
   width: 50%;
   overflow: hidden;
 }

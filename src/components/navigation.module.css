@@ -13,6 +13,14 @@
   padding: var(--space-2xl) var(--size-gutter);
 }
 
+.container a {
+  text-decoration: none;
+}
+
+.container a.active {
+  text-decoration: underline;
+}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -22,7 +30,7 @@
   height: 60px;
 }
 
-.navigationItem {
+.navigation-item {
   display: flex;
   flex-direction: column;
   font-family: var(--font-header);
@@ -30,22 +38,28 @@
   text-transform: uppercase;
 }
 
-.navigationItem a {
-  color: currentColor;
+.navigation-item:hover {
+  font-weight: bold;
+  color: var(--white);
   text-decoration: none;
 }
 
-.navigationItem a:hover {
-  font-weight: var(--bold);
-}
-
-.logoLink {
+.logo-link {
   display: flex;
   font-weight: var(--semibold);
   align-items: center;
   flex-direction: row;
   flex-shrink: 0;
   gap: var(--space-2xl);
+}
+
+.logo-link:hover {
+  text-decoration: none;
+}
+
+.logo-link:hover .subtitle {
+  font-weight: var(--bold);
+  color: var(--primary);
 }
 
 .title {
@@ -56,14 +70,14 @@
 .subtitle {
   font-size: var(--text-prose);
   color: var(--primary-gray);
-  border-bottom: 1px solid transparent;
 }
 
-.navigationItem:hover .subtitle {
-  color: var(--primary);
+.navigation-item:hover .title,
+.navigation-item:hover .subtitle {
+  font-weight: var(--semibold);
 }
 
-.navigationTube {
+.navigation-tube {
   display: flex;
   justify-content: center;
   height: 90%;
@@ -72,18 +86,22 @@
   background-color: var(--primary);
 }
 
-.navStart {
+.nav-start {
   border-radius: 50px 0 0 50px;
   padding-left: var(--space-2xl);
 }
 
-.navEnd {
+.nav-end {
   border-radius: 0 50px 50px 0;
   padding-right: var(--space-2xl);
 }
 
-.navigationTube::after {
-  content: attr(data-text);
+.emboldened-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.emboldened-item::after {
   content: attr(data-text) / '';
   height: 0;
   visibility: hidden;
@@ -94,13 +112,13 @@
 }
 
 @media speech {
-  .navigationTube::after {
+  .navigation-tube::after {
     display: none;
   }
 }
 
 @media (max-width: 767px) {
-  .logoLink > span:last-child {
+  .logo-link > span:last-child {
     border: 0;
     clip: rect(0, 0, 0, 0);
     height: 1px;

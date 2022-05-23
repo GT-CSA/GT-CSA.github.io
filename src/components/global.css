@@ -86,23 +86,29 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-header);
   font-weight: var(--semibold);
   line-height: var(--dense);
+  text-transform: uppercase;
 }
 
 a {
-  font-family: var(--font-header);
   color: currentColor;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
   color: var(--primary);
+  text-decoration: underline;
 }
 
 a.active {
   font-weight: var(--bold);
-  border-bottom: 1px solid var(--white);
+  text-decoration: underline;
+}
+
+a.active:hover {
+  text-decoration: underline;
 }
 
 tt,

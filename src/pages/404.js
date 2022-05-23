@@ -31,7 +31,7 @@ const NotFound = ({ data }) => {
 
 export const pageQuery = graphql`
   query NotFoundQuery {
-    data: contentfulHomeHero(
+    data: contentfulPageHero(
       id: { eq: "0f3e76e6-d98c-56ad-8c4d-536a32a87eb2" }
     ) {
       title

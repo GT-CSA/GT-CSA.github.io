@@ -48,20 +48,18 @@ const Navigation = () => {
 
 const NavButton = ({ name, slug, start, end }) => {
   return (
-    <li
+    <Link
+      to={`/${slug}`}
+      activeClassName={`${styles.active} active`}
+      partiallyActive={slug !== ''}
       className={`${styles.navigationItem} ${styles.navigationTube} ${
         start ? styles.navStart : ''
       } ${end ? styles.navEnd : ''}`}
-      data-text={name}
     >
-      <Link
-        to={`/${slug}`}
-        activeClassName="active"
-        partiallyActive={slug !== ''}
-      >
+      <li className={styles.emboldenedItem} data-text={name}>
         {name}
-      </Link>
-    </li>
+      </li>
+    </Link>
   )
 }
 

@@ -10,13 +10,14 @@ import HomeBlob from '../components/home-blob'
 class RootIndex extends React.Component {
   render() {
     const blobs = get(this, 'props.data.allContentfulHomeBlob.nodes')
-    const hero = get(this, 'props.data.contentfulHomeHero')
+    const hero = get(this, 'props.data.contentfulPageHero')
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <Hero
           image={hero.images[0].gatsbyImageData}
           title={hero.title}
           subtitle={hero.subtitle}
+          description={hero.longDescription}
         >
           <HeroButton link={hero.linkSlug} text={hero.linkText} />
         </Hero>
@@ -59,9 +60,12 @@ export const pageQuery = graphql`
         blobOnLeft
       }
     }
-    contentfulHomeHero(id: { eq: "5b07114c-e021-5c74-92f3-284aeb432a04" }) {
+    contentfulPageHero(id: { eq: "5b07114c-e021-5c74-92f3-284aeb432a04" }) {
       title
       subtitle
+      longDescription {
+        raw
+      }
       linkText
       linkSlug
       images {

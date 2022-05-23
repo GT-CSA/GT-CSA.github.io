@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Container = ({ children, as = 'div' }) => {
+const Container = ({ className, children, as = 'div' }) => {
   const Tag = as
 
   return (
     <Tag
+      className={className}
       style={{
         maxWidth: 'var(--size-max-width)',
         margin: '0 auto',
