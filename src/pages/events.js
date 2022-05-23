@@ -52,7 +52,7 @@ export const pageQuery = graphql`
     }
     events: allContentfulEventPreview(
       filter: { isAfterToday: { eq: true } }
-      sort: { fields: startDate, order: ASC }
+      sort: { fields: endDate, order: ASC }
     ) {
       nodes {
         title

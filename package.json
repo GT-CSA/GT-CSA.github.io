@@ -29,22 +29,25 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "https://github.com/GT-CSA/GT-CSA.github.io",
   "keywords": [
     "gatsby",
     "contentful",
-    "starter"
+    "starter",
+    "Georgia Tech",
+    "Chinese Student Association",
+    "website",
+    "blog"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "git+https://github.com/GT-CSA/GT-CSA.github.io.git"
   },
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "setup": "node ./bin/setup.js"
+    "serve": "gatsby serve"
   }
 }

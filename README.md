@@ -4,9 +4,6 @@ https://www.contentful.com/blog/2018/08/17/a-guide-to-creating-static-sites-with
 https://www.gatsbyjs.com/docs/reference/gatsby-project-structure/
 https://www.figma.com/file/KJLefrdMyclUBffCf6eSXR/Website-Design?node-id=2%3A49
 
-https://stackoverflow.com/questions/32018238/how-to-use-an-svg-shape-to-mask-an-image
-https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
-
 # Contentful Gatsby Starter Blog
 
 Create a [Gatsby](http://gatsbyjs.com/) blog powered by [Contentful](https://www.contentful.com).
