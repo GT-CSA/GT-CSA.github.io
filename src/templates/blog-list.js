@@ -2,13 +2,32 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
+import ArticlePreview from '../components/article-preview'
+import Container from '../components/container'
+import Paginator from '../components/paginator'
 
 const BlogList = ({ data, pageContext }) => {
   const { posts } = data
   return (
     <Layout>
-      Test {posts.nodes[0].title} {pageContext.currentPage}{' '}
-      {pageContext.numPages}
+      <Container>
+        <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
+          Page {pageContext.currentPage}
+        </h1>
+        <Paginator
+          currPage={pageContext.currentPage}
+          numPages={pageContext.numPages}
+          base={'/cctv/blog'}
+          style={{ marginBottom: 'var(--space-3xl)' }}
+        />
+        <ArticlePreview posts={posts.nodes} />
+        <Paginator
+          currPage={pageContext.currentPage}
+          numPages={pageContext.numPages}
+          base={'/cctv/blog'}
+          style={{ marginTop: 'var(--space-3xl)' }}
+        />
+      </Container>
     </Layout>
   )
 }

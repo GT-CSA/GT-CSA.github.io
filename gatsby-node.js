@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/blog/` : `/blog/${i + 1}/`,
+      path: i === 0 ? `/cctv/blog/` : `/cctv/blog/${i + 1}/`,
       component: blogList,
       context: {
         limit: postsPerPage,

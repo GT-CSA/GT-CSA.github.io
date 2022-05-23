@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
@@ -16,7 +16,13 @@ const BlogIndex = ({ data }) => {
       <Seo title="Blog" />
       <Hero hero={hero} />
       <YouTubePreview />
-      <ArticlePreview posts={posts.nodes} />
+      <Container>
+        <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
+          From Our Blog
+        </h1>
+        <ArticlePreview posts={posts.nodes} />
+        <Link to="/cctv/blog">Click here to see all of our posts!</Link>
+      </Container>
       <Container>
         <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
           Chinese Convo!
@@ -32,7 +38,7 @@ export const pageQuery = graphql`
   query CctvQuery {
     posts: allContentfulBlogPost(
       sort: { fields: [publishDate], order: DESC }
-      limit: 3
+      limit: 2
     ) {
       nodes {
         title

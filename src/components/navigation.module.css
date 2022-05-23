@@ -57,11 +57,6 @@
   text-decoration: none;
 }
 
-.logo-link:hover .subtitle {
-  font-weight: var(--bold);
-  color: var(--primary);
-}
-
 .title {
   font-size: var(--text-lead);
   color: var(--primary);
@@ -75,6 +70,7 @@
 .navigation-item:hover .title,
 .navigation-item:hover .subtitle {
   font-weight: var(--semibold);
+  color: var(--primary);
 }
 
 .navigation-tube {
