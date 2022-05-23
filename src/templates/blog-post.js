@@ -40,30 +40,14 @@ class BlogPostTemplate extends React.Component {
             <time dateTime={post.rawDate}>{post.publishDate}</time> –{' '}
             {timeToRead} minute read
           </span>
+
           <div className={styles.article}>
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body)}
             </div>
             <Tags tags={post.tags} />
             {(previous || next) && (
-              <nav>
-                <ul className={styles.articleNavigation}>
-                  {previous && (
-                    <li>
-                      <Link to={`/cctv/blog/${previous.slug}`} rel="prev">
-                        ← {previous.title}
-                      </Link>
-                    </li>
-                  )}
-                  {next && (
-                    <li>
-                      <Link to={`/cctv/blog/${next.slug}`} rel="next">
-                        {next.title} →
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-              </nav>
+              <PrevNextPosts previous={previous} next={next} />
             )}
           </div>
         </div>
@@ -71,6 +55,30 @@ class BlogPostTemplate extends React.Component {
     )
   }
 }
+
+const PrevNextPosts = ({ previous, next }) => (
+  <nav>
+    <ul className={styles.articleNavigation}>
+      {previous && (
+        <li>
+          <Link to={`/cctv/blog/${previous.slug}`} rel="prev">
+            ← {previous.title}
+          </Link>
+        </li>
+      )}
+      <li>
+        <Link to={`/cctv/blog/`}>Blog Home</Link>
+      </li>
+      {next && (
+        <li>
+          <Link to={`/cctv/blog/${next.slug}`} rel="next">
+            {next.title} →
+          </Link>
+        </li>
+      )}
+    </ul>
+  </nav>
+)
 
 export default BlogPostTemplate
 
