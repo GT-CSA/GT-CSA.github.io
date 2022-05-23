@@ -17,11 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # - name: Stall for contentful update before building site # possibly unneeded
-      #   uses: jakejarvis/wait-action@master
-      #   if: ${{ github.event.action == 'contentful.deploy' }}
-      #   with:
-      #     time: '1m'
+      - name: Stall for contentful update before building site # possibly unneeded
+        uses: jakejarvis/wait-action@master
+        if: ${{ github.event.action == 'contentful.deploy' }}
+        with:
+          time: '5m'
 
       - name: Setup Node
         uses: actions/setup-node@v3
