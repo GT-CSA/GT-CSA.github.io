@@ -19,7 +19,7 @@ jobs:
 
       - name: Stall for contentful update before building site # possibly unneeded
         uses: jakejarvis/wait-action@master
-        if: ${{ github.event.action === "contentful.deploy" }}
+        if: ${{ github.event.action == "contentful.deploy" }}
         with:
           time: '5m'
 
