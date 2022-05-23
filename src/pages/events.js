@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/layout'
-import Hero from '../components/home-hero'
+import Hero from '../components/hero'
 import EventsPreview from '../components/events-preview'
 import EventsCalendar from '../components/events-calendar'
 import BambooFooter from '../components/bamboo-footer'
@@ -16,12 +16,7 @@ const Events = ({ data }) => {
 
   return (
     <Layout>
-      <Hero
-        image={hero.images[0].gatsbyImageData}
-        title={hero.title}
-        subtitle={hero.subtitle}
-        description={hero.longDescription}
-      />
+      <Hero hero={hero} />
       <EventsPreview events={eventsAfterToday} />
       <EventsCalendar />
       <BambooFooter>
@@ -43,7 +38,7 @@ export const pageQuery = graphql`
     ) {
       title
       subtitle
-      longDescription {
+      description: longDescription {
         raw
       }
       images {

@@ -7,7 +7,7 @@ import readingTime from 'reading-time'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+import Hero from '../components/blog-hero'
 import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
 

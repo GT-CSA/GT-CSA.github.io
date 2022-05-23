@@ -44,12 +44,12 @@ const EventMeta = ({ startDate, endDate, at, coordinates, link }) => {
   const [endDayOfWeek, endDay, endYear, endTime] = endDate.split(', ')
   let eventTime = `${startDayOfWeek} ${startDay}`
   if (startDay === endDay && startYear === endYear)
-    eventTime = `${eventTime}, ${startYear}, ${startTime} - ${endTime}`
+    eventTime = `${eventTime} ${startYear}, ${startTime} - ${endTime}`
   else {
     if (startYear === endYear)
-      eventTime = `${eventTime} - ${endDayOfWeek} ${endDay}, ${endYear}, ${startTime} - ${endTime}`
+      eventTime = `${eventTime} - ${endDayOfWeek} ${endDay} ${endYear}, ${startTime} - ${endTime}`
     else
-      eventTime = `${eventTime} ${startYear} - ${endDayOfWeek} ${endDay}, ${endYear}, ${startTime} - ${endTime}`
+      eventTime = `${eventTime} ${startYear} - ${endDayOfWeek} ${endDay} ${endYear}, ${startTime} - ${endTime}`
   }
   return (
     <h3 className={styles.meta}>

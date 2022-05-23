@@ -13,6 +13,7 @@ const ArticlePreview = ({ posts }) => {
 
   return (
     <Container>
+      <h1 className={styles.heading}>From Our Blog</h1>
       <ul className={styles.articleList}>
         {posts.map((post) => {
           return (
@@ -32,6 +33,7 @@ const ArticlePreview = ({ posts }) => {
           )
         })}
       </ul>
+      <Link to="/cctv/blog">Click here to see all of our posts!</Link>
     </Container>
   )
 }
