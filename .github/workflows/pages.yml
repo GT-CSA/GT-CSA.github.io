@@ -23,6 +23,10 @@ jobs:
         with:
           time: '5m'
 
+      - name: Print GitHub event action
+        run: |
+          echo "${{ github.event.action }}"
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
