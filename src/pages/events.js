@@ -50,7 +50,10 @@ export const pageQuery = graphql`
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
-    events: allContentfulEventPreview(filter: { isAfterToday: { eq: true } }) {
+    events: allContentfulEventPreview(
+      filter: { isAfterToday: { eq: true } }
+      sort: { fields: startDate, order: ASC }
+    ) {
       nodes {
         title
         description {
