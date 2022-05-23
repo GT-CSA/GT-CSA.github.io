@@ -6,6 +6,7 @@ import Hero from '../components/hero'
 import EventsPreview from '../components/events-preview'
 import EventsCalendar from '../components/events-calendar'
 import BambooFooter from '../components/bamboo-footer'
+import Seo from '../components/seo'
 
 const Events = ({ data }) => {
   const { hero, events } = data
@@ -16,6 +17,7 @@ const Events = ({ data }) => {
 
   return (
     <Layout>
+      <Seo title="CSA Events" />
       <Hero hero={hero} />
       <EventsPreview events={eventsAfterToday} />
       <EventsCalendar />

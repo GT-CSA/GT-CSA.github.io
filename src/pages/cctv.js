@@ -13,7 +13,7 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title="Blog" />
+      <Seo title="CCTV" />
       <Hero hero={hero} />
       <YouTubePreview />
       <Container>
