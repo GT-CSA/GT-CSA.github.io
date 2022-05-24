@@ -143,6 +143,11 @@
   flex-direction: column;
 }
 
+.hamburger {
+  background: none;
+  border: none;
+}
+
 @media speech {
   .navigation-tube::after {
     display: none;

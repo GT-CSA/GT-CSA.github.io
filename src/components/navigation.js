@@ -80,13 +80,13 @@ const Navigation = () => {
             </span>
           )}
         </Link>
-        <div
+        <button
           className={styles.hamburger}
           onClick={() => setDropped(!dropped)}
           role="menu"
         >
           hamburger
-        </div>
+        </button>
         <ul
           className={`${styles.navigation} ${dropped ? styles.dropped : ''} ${
             scrolled ? styles.scrolled : ''
