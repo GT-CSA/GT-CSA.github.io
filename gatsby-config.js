@@ -38,7 +38,7 @@ module.exports = {
   siteMetadata: {
     title: 'GT Chinese Student Association',
     description:
-      'Official site of Chinese Student Association at the Georgia Institute of Technology (GT CSA)!',
+      'Official site of GT CSA, the Chinese Student Association at the Georgia Institute of Technology!',
   },
   plugins: [
     'gatsby-transformer-sharp',
