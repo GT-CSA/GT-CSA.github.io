@@ -15,32 +15,34 @@ const Navigation = () => {
   ]
 
   const [dropped, setDropped] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(true)
   useEffect(() => {
-    const checkScroll = (e) => {
-      if (e.target === document) {
-        const navMax = parseInt(
-          getComputedStyle(document.documentElement, null).getPropertyValue(
-            '--size-max-nav'
-          ),
-          10
-        )
-        const navSmall = parseInt(
-          getComputedStyle(document.documentElement, null).getPropertyValue(
-            '--size-small-nav'
-          ),
-          10
-        )
-        if (
-          window &&
-          !isNaN(navSmall) &&
-          !isNaN(navMax) &&
-          window.scrollY > navMax - navSmall
-        )
-          setScrolled(true)
-        else setScrolled(false)
-      }
+    const calcScroll = () => {
+      const navMax = parseInt(
+        getComputedStyle(document.documentElement, null).getPropertyValue(
+          '--size-max-nav'
+        ),
+        10
+      )
+      const navSmall = parseInt(
+        getComputedStyle(document.documentElement, null).getPropertyValue(
+          '--size-small-nav'
+        ),
+        10
+      )
+      if (
+        window &&
+        !isNaN(navSmall) &&
+        !isNaN(navMax) &&
+        window.scrollY > navMax - navSmall
+      )
+        setScrolled(true)
+      else setScrolled(false)
     }
+    const checkScroll = (e) => {
+      if (e.target === document) calcScroll()
+    }
+    calcScroll()
     window.addEventListener('scroll', checkScroll)
     return () => window.removeEventListener('scroll', checkScroll)
   }, [])
