@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 
 import * as styles from './navigation.module.css'
@@ -14,23 +14,84 @@ const Navigation = () => {
     { name: 'Contact Us', slug: 'contact' },
   ]
 
+  const [dropped, setDropped] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const checkScroll = (e) => {
+      if (e.target === document) {
+        const navMax = parseInt(
+          getComputedStyle(document.documentElement, null).getPropertyValue(
+            '--size-max-nav'
+          ),
+          10
+        )
+        const navSmall = parseInt(
+          getComputedStyle(document.documentElement, null).getPropertyValue(
+            '--size-small-nav'
+          ),
+          10
+        )
+        if (
+          window &&
+          !isNaN(navSmall) &&
+          !isNaN(navMax) &&
+          window.scrollY > navMax - navSmall
+        )
+          setScrolled(true)
+        else setScrolled(false)
+      }
+    }
+    window.addEventListener('scroll', checkScroll)
+    return () => window.removeEventListener('scroll', checkScroll)
+  }, [])
+
   return (
     <div className={styles.shadow}>
-      <nav role="navigation" className={styles.container} aria-label="Main">
+      <nav
+        role="navigation"
+        className={`${styles.container} ${scrolled ? styles.scrolled : ''}`}
+        aria-label="Main"
+      >
         <Link to="/" className={styles.logoLink}>
-          <Logo />
-          <span className={styles.navigationItem}>
-            <span className={styles.title}>Georgia Tech</span>
-            <span className={styles.subtitle}>
-              Chinese
-              <br />
-              Student
-              <br />
-              Association
+          <div
+            className={`${styles.logoWrapper} ${
+              scrolled ? styles.scrolled : ''
+            }`}
+          >
+            <Logo className={styles.logo} />
+          </div>
+          {scrolled ? (
+            <span className={`${styles.navigationItem} ${styles.scrolled}`}>
+              <span className={styles.title}>GT&nbsp;</span>
+              <span className={styles.subtitle}>
+                Chinese Student Association
+              </span>
             </span>
-          </span>
+          ) : (
+            <span className={styles.navigationItem}>
+              <span className={styles.title}>Georgia Tech</span>
+              <span className={styles.subtitle}>
+                Chinese
+                <br />
+                Student
+                <br />
+                Association
+              </span>
+            </span>
+          )}
         </Link>
-        <ul className={styles.navigation}>
+        <div
+          className={styles.hamburger}
+          onClick={() => setDropped(!dropped)}
+          role="menu"
+        >
+          hamburger
+        </div>
+        <ul
+          className={`${styles.navigation} ${dropped ? styles.dropped : ''} ${
+            scrolled ? styles.scrolled : ''
+          }`}
+        >
           {navs.map((nav, i) => (
             <NavButton
               key={nav.slug}

@@ -10,7 +10,7 @@ const EventsCalendar = () => (
       style={{ border: 0 }}
       width="800"
       height="600"
-      frameborder="0"
+      frameBorder="0"
       scrolling="no"
     ></iframe>
   </div>
