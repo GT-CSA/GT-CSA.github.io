@@ -4,9 +4,9 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import EventsPreview from '../components/events-preview'
-import EventsCalendar from '../components/events-calendar'
 import BambooFooter from '../components/bamboo-footer'
 import Seo from '../components/seo'
+import IFrameContainer from '../components/iframe-container'
 
 const Events = ({ data }) => {
   const { hero, events } = data
@@ -20,7 +20,14 @@ const Events = ({ data }) => {
       <Seo title="CSA Events" />
       <Hero hero={hero} />
       <EventsPreview events={eventsAfterToday} />
-      <EventsCalendar />
+      <IFrameContainer
+        containerTitle="Events Calendar"
+        src="https://calendar.google.com/calendar/embed?src=csa.gatech%40gmail.com&ctz=America%2FNew_York&showTitle=0"
+        title="CSA Calendar"
+        style={{ border: 0 }}
+        frameBorder="0"
+        scrolling="no"
+      />
       <BambooFooter>
         <p>
           Looking for past events? See event recap posts{' '}

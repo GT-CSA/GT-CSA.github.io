@@ -5,8 +5,8 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
-import YouTubePreview from '../components/youtube-preview'
 import Container from '../components/container'
+import IFrameContainer from '../components/iframe-container'
 
 const BlogIndex = ({ data }) => {
   const { posts, hero } = data
@@ -15,7 +15,14 @@ const BlogIndex = ({ data }) => {
     <Layout>
       <Seo title="CCTV" />
       <Hero hero={hero} />
-      <YouTubePreview />
+      <IFrameContainer
+        containerTitle="See Our Latest Video Here"
+        src="https://www.youtube.com/embed/videoseries?list=PLUmMiMpeUbtBc2U2RKD5efE293nPwiud1"
+        title="CSA Youtube Full Playlist"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
       <Container>
         <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
           From Our Blog
