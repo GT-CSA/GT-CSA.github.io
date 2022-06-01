@@ -40,7 +40,15 @@ Spin up a production-ready server with your blog. Don't forget to build your pag
 
 ## Deployment
 
-Deployment is done through the [GitHub Pages](https://github.com/marketplace/actions/github-pages-action) action. This action updates the `gh-pages` branch with a new commit and deploys the result to GitHub pages.
+Deployment is done through the [GitHub Pages](https://github.com/marketplace/actions/github-pages-action) action. This action updates the `gh-pages` branch with a new commit and deploys the result to GitHub pages. This branch can be deleted in case development is on pause and not necessary.
+
+The same action updates the `plesk` branch, which is the branch [Georgia Tech Plesk Hosting](https://hosting.gatech.edu) reads from and auto-updates.
+
+### Contentful Hook
+
+The deployment workflow is also tied to a Contentful update webhook action, meaning whenever anything in the Gerogia Tech CSA Contentful space is updated, the site will redeploy and reflect those changes. For actions run by the webhook, it will always take more than 5 minutes so as to wait for Contentful's API to properly reflect any changes.
+
+A GitHub PAT is necessary in order for this to work. In case the hook does not trigger or fails any actions, please check if the PAT has expired, and regenerate it in case it has.
 
 ## Contribution
 

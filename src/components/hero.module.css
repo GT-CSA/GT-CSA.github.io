@@ -38,7 +38,7 @@
 
 .title {
   letter-spacing: -0.012em;
-  font-size: var(--text-6xl);
+  font-size: var(--text-4xl);
   font-weight: var(--semibold);
   line-height: var(--solid);
   margin: 0 0 var(--space-xl);
@@ -88,3 +88,9 @@
     padding: var(--space-3xl) var(--size-gutter) 0 0;
   }
 } */
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: var(--text-6xl);
+  }
+}

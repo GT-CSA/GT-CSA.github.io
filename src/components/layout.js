@@ -10,7 +10,7 @@ const Template = ({ children }) => {
     <>
       <Seo />
       <Navigation />
-      <main style={{ paddingTop: 'var(--size-max-nav)' }}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   )

@@ -15,85 +15,50 @@ const Navigation = () => {
   ]
 
   const [dropped, setDropped] = useState(false)
-  const [scrolled, setScrolled] = useState(true)
+
+  const toggleOverflow = (isDropped) => {
+    const style = document.getElementsByTagName('body')[0].style
+    if (!style) return
+    if (isDropped) style.overflow = 'hidden'
+    else style.overflow = 'auto'
+  }
+
   useEffect(() => {
-    const calcScroll = () => {
-      const navMax = parseInt(
-        getComputedStyle(document.documentElement, null).getPropertyValue(
-          '--size-max-nav'
-        ),
-        10
-      )
-      const navSmall = parseInt(
-        getComputedStyle(document.documentElement, null).getPropertyValue(
-          '--size-small-nav'
-        ),
-        10
-      )
-      if (
-        window &&
-        !isNaN(navSmall) &&
-        !isNaN(navMax) &&
-        window.scrollY > navMax - navSmall
-      )
-        setScrolled(true)
-      else setScrolled(false)
+    const resetDropped = () => {
+      document.getElementsByTagName('body')[0].style.overflow = 'auto'
+      setDropped(false)
     }
-    const checkScroll = (e) => {
-      if (e.target === document) calcScroll()
-    }
-    calcScroll()
-    window.addEventListener('scroll', checkScroll)
-    return () => window.removeEventListener('scroll', checkScroll)
+    document.getElementsByTagName('body')[0].style.overflow = 'auto'
+    window.addEventListener('resize', resetDropped)
+    return () => window.removeEventListener('resize', resetDropped)
   }, [])
 
   return (
     <div className={styles.shadow}>
       <nav
         role="navigation"
-        className={`${styles.container} ${scrolled ? styles.scrolled : ''}`}
+        className={`${styles.container}  ${dropped ? styles.dropped : ''}`}
         aria-label="Main"
       >
-        <Link to="/" className={styles.logoLink}>
-          <div
-            className={`${styles.logoWrapper} ${
-              scrolled ? styles.scrolled : ''
-            }`}
-          >
-            <Logo className={styles.logo} />
+        <div className={styles.bar}>
+          <HomeIcon />
+          <div className={styles.hamburgerContainer}>
+            <button
+              className={styles.hamburger}
+              onClick={() => {
+                setDropped(!dropped)
+                toggleOverflow(!dropped)
+              }}
+              role="menu"
+            >
+              hamburger
+            </button>
           </div>
-          {scrolled ? (
-            <span className={`${styles.navigationItem} ${styles.scrolled}`}>
-              <span className={styles.title}>GT&nbsp;</span>
-              <span className={styles.subtitle}>
-                Chinese Student Association
-              </span>
-            </span>
-          ) : (
-            <span className={styles.navigationItem}>
-              <span className={styles.title}>Georgia Tech</span>
-              <span className={styles.subtitle}>
-                Chinese
-                <br />
-                Student
-                <br />
-                Association
-              </span>
-            </span>
-          )}
-        </Link>
-        <button
-          className={styles.hamburger}
-          onClick={() => setDropped(!dropped)}
-          role="menu"
-        >
-          hamburger
-        </button>
-        <ul
-          className={`${styles.navigation} ${dropped ? styles.dropped : ''} ${
-            scrolled ? styles.scrolled : ''
-          }`}
-        >
+        </div>
+        <ul className={`${styles.navigation} ${dropped ? styles.dropped : ''}`}>
+          <li className={styles.container}>
+            <HomeIcon />
+          </li>
           {navs.map((nav, i) => (
             <NavButton
               key={nav.slug}
@@ -103,11 +68,32 @@ const Navigation = () => {
               end={i === navs.length - 1}
             />
           ))}
+          <div
+            className={`${styles.gradient} ${dropped ? styles.dropped : ''}`}
+          />
         </ul>
       </nav>
     </div>
   )
 }
+
+const HomeIcon = () => (
+  <Link to="/" className={`${styles.logoLink}`}>
+    <div className={`${styles.logoWrapper} `}>
+      <Logo className={styles.logo} />
+    </div>
+    <span className={styles.navigationItem}>
+      <span className={styles.title}>Georgia Tech</span>
+      <span className={styles.subtitle}>
+        Chinese
+        <br />
+        Student
+        <br />
+        Association
+      </span>
+    </span>
+  </Link>
+)
 
 const NavButton = ({ name, slug, start, end }) => {
   return (
