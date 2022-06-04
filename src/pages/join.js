@@ -56,7 +56,7 @@ export const pageQuery = graphql`
         position
         exec
         image {
-          gatsbyImageData
+          gatsbyImageData(aspectRatio: 0.78125, layout: CONSTRAINED)
         }
       }
     }

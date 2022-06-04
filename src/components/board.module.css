@@ -1,0 +1,142 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 0.78125;
+  background-color: #d14e609e;
+  border-radius: 10%/7.8125%;
+  min-width: 100px;
+  width: calc(50% - var(--space-lg));
+  text-align: center;
+  color: var(--white);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.heading {
+  font-family: var(--font-header);
+  opacity: 0;
+  margin: 0;
+  transition-delay: 0s;
+  transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  text-transform: capitalize;
+}
+
+h4.heading {
+  margin-top: var(--space-sm);
+  font-weight: var(--body);
+}
+
+.description {
+  font-family: var(--font-sans);
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+    max-height 0.4s cubic-bezier(0.355, 0, 0.355, 1);
+}
+
+.background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%/7.8125%;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.shade {
+  opacity: 0;
+  position: absolute;
+  background-color: #752f2f8f;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%/7.8125%;
+  z-index: 2;
+  transition: opacity 0.4s cubic-bezier(0.215, 0, 0.355, 1);
+}
+
+.shade.clicked {
+  background-color: #752f2fcf;
+}
+
+.card:hover .shade,
+.card.clicked .shade {
+  opacity: 1;
+}
+.card:hover,
+.card.clicked {
+  background-color: none;
+}
+
+.card:hover .heading,
+.card.clicked .heading {
+  opacity: 1;
+}
+
+.overflow {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-2xl);
+  z-index: 3;
+  position: relative;
+}
+
+.overflow.clicked {
+  overflow: auto;
+}
+
+.overflow.clicked .description {
+  max-height: 20em;
+  opacity: 1;
+}
+
+.divider {
+  width: 100px;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  margin: var(--space-lg) auto;
+}
+
+@media (min-width: 640px) {
+  .card-container {
+    gap: var(--space-lg);
+  }
+  .card {
+    min-width: 150px;
+    width: calc(33% - var(--space-lg));
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-container {
+    gap: var(--space-lg);
+  }
+  .card {
+    min-width: 160px;
+    width: calc(25% - var(--space-lg));
+  }
+}
+
+@media (min-width: 1300px) {
+  .card-container {
+    gap: var(--space-xl);
+  }
+  .card {
+    min-width: 170px;
+    width: calc(20% - var(--space-xl));
+  }
+}
