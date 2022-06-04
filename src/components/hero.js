@@ -15,7 +15,7 @@ const Hero = ({ hero, children }) => {
         {image && (
           <GatsbyImage
             className={styles.image}
-            alt={title}
+            alt={'CSA Gatech'}
             image={image}
             imgStyle={{ objectPosition: 'bottom' }}
           />
