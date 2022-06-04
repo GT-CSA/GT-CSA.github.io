@@ -16,7 +16,6 @@ const ContactInformations = ({ contacts }) => (
 )
 
 const Contact = ({ contact }) => {
-  console.log(contact)
   return (
     <div className={styles.contact}>
       <a className={styles.icon} href={contact.link.link}>
