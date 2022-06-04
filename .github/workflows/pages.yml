@@ -57,12 +57,13 @@ jobs:
           publish_dir: ./public
 
       - name: Push to GT Enterprise for plesk sync
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
         run: |
           git remote add enterprise https://github.gatech.edu/csa-gatech/website.git
           git config --global user.email " 41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git fetch
-          git checkout gh-pages
           git push -u enterprise main
         env:
           REPO_KEY: ${{secrets.PUSH_TOKEN}}
