@@ -61,8 +61,8 @@ jobs:
         with:
           ref: gh-pages
       - uses: de-vri-es/setup-git-credentials@v2
-      with:
-        credentials: https://${{secrets.GT_USER}}:${{secrets.GT_PAT}}@github.gatech.edu/
+        with:
+          credentials: https://${{secrets.GT_USER}}:${{secrets.GT_PAT}}@github.gatech.edu/
       - run: |
           git remote rm origin
           git remote add origin https://github.gatech.edu/csa-gatech/site.git
