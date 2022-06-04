@@ -60,12 +60,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: gh-pages
-      - uses: oleksiyrudenko/gha-git-credentials@v2.1
-        with:
-          global: true
-          name: '${{secrets.GT_USER}}'
-          email: '${{secrets.GT_EMAIL}}'
-          token: '${{ secrets.GT_PAT }}'
+      - uses: de-vri-es/setup-git-credentials@v2
+      with:
+        credentials: https://${{secrets.GT_USER}}:${{secrets.GT_PAT}}@github.gatech.edu/
       - run: |
           git remote rm origin
           git remote add origin https://github.gatech.edu/csa-gatech/site.git
