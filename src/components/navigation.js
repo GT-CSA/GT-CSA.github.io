@@ -11,7 +11,7 @@ const Navigation = () => {
     { name: 'CSA Events', slug: 'events' },
     { name: 'China Care', slug: 'chinacare' },
     { name: 'CCTV', slug: 'cctv' },
-    { name: 'Get Involved', slug: 'board' },
+    { name: 'Get Involved', slug: 'join' },
     { name: 'Contact Us', slug: 'contact' },
   ]
 

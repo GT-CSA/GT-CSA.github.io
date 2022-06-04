@@ -34,6 +34,7 @@ const BlogIndex = ({ data }) => {
         <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
           Chinese Convo!
         </h1>
+        <p>stuff here, make a picture title description content model</p>
       </Container>
     </Layout>
   )

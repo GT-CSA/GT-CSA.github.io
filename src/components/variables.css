@@ -80,7 +80,7 @@
 
   /* size */
   --size-gutter: var(--space-2xl);
-  --size-x-content: 14%;
+  --size-x-content: min(14%, 0.14 * var(--size-max-width));
   --size-logo: var(--space-2xl);
   --size-max-width: 100rem;
   --size-max-nav: 100px;

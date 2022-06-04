@@ -202,7 +202,8 @@
   left: calc(100vw - 80px);
   transform: translateX(-50%);
   cursor: pointer;
-  transition: color opacity 0.3s cubic-bezier(0.4, 0, 0, 1) 0.3s;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0, 1) 0.3s;
+  transition-delay: 0s;
   opacity: 50%;
 }
 
@@ -210,6 +211,12 @@
   transition-delay: 0s;
   color: var(--white);
   opacity: 1;
+}
+
+@media speech {
+  .emboldened-item::after {
+    display: none;
+  }
 }
 
 /* var(--screen-lg) */
@@ -220,11 +227,11 @@
     justify-content: space-between;
   }
 
-  .gradient {
+  .gradient:not(.dropped) {
     display: none;
   }
 
-  .navigation {
+  .navigation:not(.dropped) {
     position: static;
     display: flex;
     height: 60px;
@@ -235,29 +242,25 @@
     pointer-events: auto;
   }
 
-  .navigation .container {
+  .navigation:not(.dropped) .container {
     display: none;
   }
 
-  .navigation.dropped {
-    position: static;
-  }
-
-  .navigation-item {
+  .container:not(.dropped) .navigation-item {
     color: var(--primary);
     padding: var(--space-lg);
     flex-grow: 0;
   }
 
-  .navigation-item li {
+  .container:not(.dropped) .navigation-item li {
     padding-left: 0;
   }
 
-  .navigation-item:hover {
+  .container:not(.dropped) .navigation-item:hover {
     color: var(--primary);
   }
 
-  .navigation-item li {
+  .container:not(.dropped) .navigation-item li {
     transform: none;
     opacity: 1;
   }
@@ -280,12 +283,16 @@
     font-weight: var(--bold);
   }
 
-  .navigation-item {
+  .container:not(.dropped) .navigation-item {
     transform: translateY(0px);
   }
 
-  .hamburger {
+  /* 
+   * Support exists for showing the hamburger on full screen mode, just delete this selector.
+   * However, a throttled js solution with a separate mobile nav view is better as the current
+   * implementation does not allow for the preservation of animations.
+  */
+  .hamburger-container {
     display: none;
-    pointer-events: none;
   }
 }

@@ -19,7 +19,6 @@ const Events = ({ data }) => {
     <Layout>
       <Seo title="CSA Events" />
       <Hero hero={hero} />
-      <EventsPreview events={eventsAfterToday} />
       <IFrameContainer
         containerTitle="Events Calendar"
         src="https://calendar.google.com/calendar/embed?src=csa.gatech%40gmail.com&ctz=America%2FNew_York&showTitle=0"
@@ -28,6 +27,8 @@ const Events = ({ data }) => {
         frameBorder="0"
         scrolling="no"
       />
+      <div>picture carousel here</div>
+      <EventsPreview events={eventsAfterToday} />
       <BambooFooter>
         <p>
           Looking for past events? See event recap posts{' '}

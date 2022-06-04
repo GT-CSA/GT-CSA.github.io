@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3xl);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.icon {
+  display: flex;
+  border: 3px solid var(--primary);
+  padding: var(--space-lg);
+  border-radius: 50%;
+}
+
+.icon:hover {
+  background-color: #d14e600e;
+}

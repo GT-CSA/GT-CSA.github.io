@@ -4,7 +4,8 @@
   font-weight: var(--semibold);
   font-size: var(--text-lg);
   color: var(--primary);
-  margin: var(--space-2xl) 14%;
+  max-width: var(--size-max-width);
+  margin: var(--space-2xl) var(--size-x-content);
   padding: var(--space-2xl) 0;
   text-align: right;
 }
