@@ -63,6 +63,7 @@ jobs:
       - run: |
           git config --global user.email ${{secrets.GT_EMAIL}}
           git config --global user.name ${{secrets.GT_USER}}
+          git remote rm origin
           git remote add origin https://github.gatech.edu/csa-gatech/website.git
           git branch -M main
           git push -u origin main
