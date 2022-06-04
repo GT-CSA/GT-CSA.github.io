@@ -18,7 +18,12 @@ const ContactInformations = ({ contacts }) => (
 const Contact = ({ contact }) => {
   return (
     <div className={styles.contact}>
-      <a className={styles.icon} href={contact.link.link}>
+      <a
+        className={styles.icon}
+        href={contact.link.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <GatsbyImage
           alt={contact.platform}
           image={contact.icon.gatsbyImageData}
