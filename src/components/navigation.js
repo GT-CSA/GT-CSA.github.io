@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 
 import * as styles from './navigation.module.css'
 import Logo from '../images/Logo.inline.svg'
+import Hamburger from '../images/Hamburger.inline.svg'
 
 const Navigation = () => {
   const navs = [
@@ -44,14 +45,14 @@ const Navigation = () => {
           <HomeIcon />
           <div className={styles.hamburgerContainer}>
             <button
-              className={styles.hamburger}
+              className={`${styles.hamburger} ${dropped ? styles.dropped : ''}`}
               onClick={() => {
                 setDropped(!dropped)
                 toggleOverflow(!dropped)
               }}
               role="menu"
             >
-              hamburger
+              <Hamburger />
             </button>
           </div>
         </div>
@@ -101,9 +102,7 @@ const NavButton = ({ name, slug, start, end }) => {
       to={`/${slug}`}
       activeClassName={`${styles.active} active`}
       partiallyActive={slug !== ''}
-      className={`${styles.navigationItem} ${styles.navigationTube} ${
-        start ? styles.navStart : ''
-      } ${end ? styles.navEnd : ''}`}
+      className={`${styles.navigationItem}`}
     >
       <li className={styles.emboldenedItem} data-text={name}>
         {name}
