@@ -60,11 +60,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: gh-pages
-        run: |
+      - run: |
           git remote add enterprise https://github.gatech.edu/csa-gatech/website.git
-          git config --global user.email " 41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          git config --global user.email ${{secrets.GT_EMAIL}}
+          git config --global user.name ${{secrets.GT_USER}}
           git push -u enterprise main
         env:
           REPO_KEY: ${{secrets.PUSH_TOKEN}}
-          username: github-actions[bot]
+          username: ${{secrets.GT_USER}}
