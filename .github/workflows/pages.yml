@@ -64,6 +64,8 @@ jobs:
           git remote add enterprise https://github.gatech.edu/csa-gatech/website.git
           git config --global user.email ${{secrets.GT_EMAIL}}
           git config --global user.name ${{secrets.GT_USER}}
+          git add .
+          git commit "deploy: ${{ github.sha }}"
           git push -u enterprise main
         env:
           REPO_KEY: ${{secrets.PUSH_TOKEN}}
