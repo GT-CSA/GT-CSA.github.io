@@ -64,7 +64,13 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          name: id_rsa-target
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          config: |
+            Host target
+              HostName github.gatech.edu
+              User git
+              IdentityFile ~/.ssh/id_rsa-target
       - run: |
           git config --global user.email ${{secrets.GT_EMAIL}}
           git config --global user.name ${{secrets.GT_USER}}
