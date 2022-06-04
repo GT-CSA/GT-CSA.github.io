@@ -61,12 +61,11 @@ jobs:
         with:
           ref: gh-pages
       - run: |
-          git remote add enterprise https://github.gatech.edu/csa-gatech/website.git
           git config --global user.email ${{secrets.GT_EMAIL}}
           git config --global user.name ${{secrets.GT_USER}}
-          git add .
-          git commit -m "deploy: ${{ github.sha }}"
-          git push -u enterprise main
+          git remote add origin https://github.gatech.edu/csa-gatech/website.git
+          git branch -M main
+          git push -u origin main
         env:
           REPO_KEY: ${{secrets.PUSH_TOKEN}}
           username: ${{secrets.GT_USER}}
