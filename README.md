@@ -42,13 +42,13 @@ Spin up a production-ready server with your blog. Don't forget to build your pag
 
 Deployment is done through the [GitHub Pages](https://github.com/marketplace/actions/github-pages-action) action. This action updates the `gh-pages` branch with a new commit and deploys the result to GitHub pages. This branch can be deleted in case development is on pause and not necessary.
 
-The same action updates the `plesk` branch, which is the branch [Georgia Tech Plesk Hosting](https://hosting.gatech.edu) reads from and auto-updates.
+[Georgia Tech Plesk Hosting](https://hosting.gatech.edu) is the production platform used for the site, as it is the platform provided by Georgia Tech. In order to set up continuous deployment for this platform, a [GT Enterprise](https://github.gatech.edu) repository is needed. This is due to the strictness of GT's auth system, which only allows for GT services to communicate with other GT services. The workaround we use is pushing the `gh-pages` branch to a dummy GT Enterprise repo using a GT Enterprise PAT and username, which thin triggers the webhook that updates the live site.
 
 ### Contentful Hook
 
 The deployment workflow is also tied to a Contentful update webhook action, meaning whenever anything in the Gerogia Tech CSA Contentful space is updated, the site will redeploy and reflect those changes. For actions run by the webhook, it will always take more than 5 minutes so as to wait for Contentful's API to properly reflect any changes.
 
-A GitHub PAT is necessary in order for this to work. In case the hook does not trigger or fails any actions, please check if the PAT has expired, and regenerate it in case it has.
+Yet another GitHub PAT is necessary in order for this to work. In case the hook does not trigger or fails any actions, please check if the PAT has expired, and regenerate it in case it has. Please note that this PAT is not the same as the GT Enterprise PAT, but a personal PAT with rights to this repository.
 
 ## Contribution
 

@@ -10,6 +10,7 @@ const Contact = ({ data }) => {
   return (
     <Layout>
       <Hero hero={hero} />
+      test
     </Layout>
   )
 }

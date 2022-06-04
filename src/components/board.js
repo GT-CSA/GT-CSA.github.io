@@ -3,7 +3,6 @@ import React from 'react'
 import Container from './container'
 
 const Board = ({ board }) => {
-  console.log(board)
   return (
     <Container>
       <h1>Meet Our Board</h1>
