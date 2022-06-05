@@ -1,0 +1,20 @@
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import React from 'react'
+import Container from './container'
+
+import * as styles from './generic-block.module.css'
+
+const GenericBlock = ({ title, description, imageData }) => (
+  <Container>
+    <h2 className={styles.header}>{title}</h2>
+    <div className={styles.content}>
+      <div className={styles.image}>
+        <GatsbyImage alt={title} image={imageData} />
+      </div>
+      <div>{renderRichText(description)}</div>
+    </div>
+  </Container>
+)
+
+export default GenericBlock

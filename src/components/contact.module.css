@@ -1,0 +1,38 @@
+.desktop-hero {
+  display: none;
+}
+
+.image-container {
+  width: 50%;
+}
+
+.image {
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    min-height: 100vh;
+    align-items: center;
+  }
+
+  .mobile-hero {
+    display: none;
+  }
+
+  .desktop-hero {
+    display: block;
+  }
+}

@@ -7,9 +7,10 @@ import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 import Container from '../components/container'
 import IFrameContainer from '../components/iframe-container'
+import GenericBlock from '../components/generic-block'
 
 const BlogIndex = ({ data }) => {
-  const { posts, hero } = data
+  const { posts, hero, convo } = data
 
   return (
     <Layout>
@@ -27,15 +28,16 @@ const BlogIndex = ({ data }) => {
         <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
           From Our Blog
         </h1>
+        <div style={{ textAlign: 'center' }}>
+          <Link to="/cctv/blog">Click here to see all of our posts!</Link>
+        </div>
         <ArticlePreview posts={posts.nodes} />
-        <Link to="/cctv/blog">Click here to see all of our posts!</Link>
       </Container>
-      <Container>
-        <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
-          Chinese Convo!
-        </h1>
-        <p>stuff here, make a picture title description content model</p>
-      </Container>
+      <GenericBlock
+        title={convo.title}
+        description={convo.description}
+        imageData={convo.image.gatsbyImageData}
+      />
     </Layout>
   )
 }
@@ -76,6 +78,17 @@ export const pageQuery = graphql`
       }
       images {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+    convo: contentfulGenericBlock(
+      id: { eq: "8845209a-f7fe-5891-9195-f8c48b54554f" }
+    ) {
+      title
+      description {
+        raw
+      }
+      image {
+        gatsbyImageData
       }
     }
   }
