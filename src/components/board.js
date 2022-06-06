@@ -11,7 +11,8 @@ const Board = ({ board }) => {
   for (; i < board.length; i++) {
     if (!board[i].exec) break
   }
-  const exec = board.splice(0, i)
+  const exec = board.slice(0, i)
+  const members = board.slice(i)
   return (
     <Container>
       <h1 style={{ textAlign: 'center', color: 'var(--primary)' }}>
@@ -20,7 +21,7 @@ const Board = ({ board }) => {
       <div>
         <BoardArray list={exec} />
         <div className={styles.divider} />
-        <BoardArray list={board} />
+        <BoardArray list={members} />
       </div>
     </Container>
   )
