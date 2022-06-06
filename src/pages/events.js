@@ -103,6 +103,7 @@ export const pageQuery = graphql`
         banner {
           gatsbyImageData(layout: CONSTRAINED, aspectRatio: 4.0)
         }
+        tags
       }
     }
     photos: contentfulGenericBlock(

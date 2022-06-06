@@ -34,6 +34,8 @@
   font-weight: var(--extrabold);
   line-height: var(--solid);
   margin: 0 0 var(--space-xl);
+  color: var(--black);
+  text-align: left;
 }
 
 .content {

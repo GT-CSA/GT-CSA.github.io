@@ -84,7 +84,7 @@
 
   /* size */
   --size-gutter: var(--space-2xl);
-  --size-x-content: min(14%, 0.14 * var(--size-max-width));
+  --size-x-content: min(10%, 0.1 * var(--size-max-width));
   --size-logo: var(--space-2xl);
   --size-max-width: 100rem;
   --size-max-nav: 100px;
@@ -94,6 +94,7 @@
 @media (min-width: 480px) {
   :root {
     --size-gutter: var(--space-3xl);
+    --size-x-content: min(14%, 0.14 * var(--size-max-width));
   }
 }
 

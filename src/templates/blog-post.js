@@ -36,7 +36,7 @@ class BlogPostTemplate extends React.Component {
         />
         <div className={styles.container}>
           <span className={styles.meta}>
-            {post.author?.name} &middot;{' '}
+            {post.author} &middot;{' '}
             <time dateTime={post.rawDate}>{post.publishDate}</time> –{' '}
             {timeToRead} minute read
           </span>
@@ -103,6 +103,7 @@ export const pageQuery = graphql`
         raw
       }
       tags
+      author
       description {
         raw
       }

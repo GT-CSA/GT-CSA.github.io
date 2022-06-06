@@ -14,7 +14,6 @@
 }
 
 .carousel {
-  width: 80%;
   align-self: center;
 }
 
@@ -29,5 +28,9 @@
 
   .photos {
     background-color: transparent;
+  }
+
+  .carousel {
+    width: 80%;
   }
 }
