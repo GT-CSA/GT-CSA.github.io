@@ -4,6 +4,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import * as styles from './events-preview.module.css'
 import Container from './container'
+import Tags from './tags'
 
 const EventsPreview = ({ events = [] }) => {
   if (!Array.isArray(events)) return null
@@ -13,6 +14,7 @@ const EventsPreview = ({ events = [] }) => {
       <div className={styles.container}>
         <h2 className={styles.title}>Upcoming CSA Events</h2>
         <ul className={styles.eventList}>
+          {events.length === 0 && <p>There are no listed events!</p>}
           {events.map((event) => {
             return (
               <li key={event.title}>
@@ -28,6 +30,9 @@ const EventsPreview = ({ events = [] }) => {
                 />
                 <div className={styles.description}>
                   {event.description?.raw && renderRichText(event.description)}
+                </div>
+                <div className={styles.tags}>
+                  <Tags tags={event.tags} />
                 </div>
                 <GatsbyImage
                   alt={event.title}

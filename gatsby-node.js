@@ -4,10 +4,10 @@ const { GraphQLBoolean, GraphQLFloat } = require('gatsby/graphql')
 exports.setFieldsOnGraphQLNodeType = ({ type }) => {
   if (type.name === `ContentfulEventPreview`) {
     return {
-      isAfterToday: {
-        type: GraphQLBoolean,
-        resolve: (source) => new Date(source.endDate) >= new Date(),
-      },
+      // isAfterToday: {
+      //   type: GraphQLBoolean,
+      //   resolve: (source) => new Date(source.endDate) >= new Date(),
+      // },
       endDateTs: {
         type: GraphQLFloat,
         resolve: (source) => new Date(source.endDate).getTime(),

@@ -15,10 +15,10 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 const Events = ({ data }) => {
   const { hero, events, photos } = data
-  const today = new Date()
-  const eventsAfterToday = events.nodes.filter(
-    (event) => new Date(event.endDateTs) > today
-  )
+  // const today = new Date()
+  // const eventsAfterToday = events.nodes.filter(
+  //   (event) => new Date(event.endDateTs) > today
+  // )
 
   return (
     <Layout>
@@ -52,7 +52,7 @@ const Events = ({ data }) => {
         </div>
         <div>{renderRichText(photos.description)}</div>
       </Container>
-      <EventsPreview events={eventsAfterToday} />
+      <EventsPreview events={events.nodes} />
       <BambooFooter>
         <p>
           Looking for past events? See event recap posts{' '}
@@ -81,7 +81,7 @@ export const pageQuery = graphql`
       }
     }
     events: allContentfulEventPreview(
-      filter: { isAfterToday: { eq: true } }
+      filter: { active: { eq: true } }
       sort: { fields: endDate, order: ASC }
     ) {
       nodes {
