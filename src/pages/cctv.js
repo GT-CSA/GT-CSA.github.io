@@ -36,7 +36,7 @@ const BlogIndex = ({ data }) => {
       <GenericBlock
         title={convo.title}
         description={convo.description}
-        imageData={convo.image.gatsbyImageData}
+        imageData={convo.images[0].gatsbyImageData}
       />
     </Layout>
   )
@@ -78,6 +78,7 @@ export const pageQuery = graphql`
       }
       images {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        title
       }
     }
     convo: contentfulGenericBlock(
@@ -87,7 +88,7 @@ export const pageQuery = graphql`
       description {
         raw
       }
-      image {
+      images {
         gatsbyImageData
       }
     }

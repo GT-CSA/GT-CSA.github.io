@@ -65,6 +65,7 @@ export const pageQuery = graphql`
       linkSlug
       images {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        title
       }
     }
   }

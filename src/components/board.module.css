@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+.headings {
+  margin: auto 0;
+}
+
 .heading {
   font-family: var(--font-header);
   opacity: 0;
@@ -89,18 +93,18 @@ h4.heading {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin: auto;
   padding: var(--space-2xl);
   z-index: 3;
   position: relative;
 }
 
 .overflow.clicked {
-  overflow: auto;
+  overflow: overlay;
 }
 
 .overflow.clicked .description {
-  max-height: 20em;
+  max-height: 40em;
   opacity: 1;
 }
 

@@ -3,39 +3,43 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import * as styles from './events-preview.module.css'
+import Container from './container'
 
 const EventsPreview = ({ events = [] }) => {
   if (!Array.isArray(events)) return null
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Upcoming CSA Events</h2>
-      <ul className={styles.eventList}>
-        {events.map((event) => {
-          return (
-            <li key={event.title}>
-              <h2 className={styles.eventTitle}>{event.title}</h2>
-              <EventMeta
-                startDate={event.startDate}
-                endDate={event.endDate}
-                at={event.locationSlug}
-                coordinates={event.location}
-                link={
-                  event.locationLink ? event.locationLink.locationLink : null
-                }
-              />
-              <div className={styles.description}>
-                {event.description?.raw && renderRichText(event.description)}
-              </div>
-              <GatsbyImage
-                alt={event.title}
-                image={event.banner.gatsbyImageData}
-              />
-            </li>
-          )
-        })}
-      </ul>
-    </div>
+    <Container>
+      <div className={styles.container}>
+        <h2 className={styles.title}>Upcoming CSA Events</h2>
+        <ul className={styles.eventList}>
+          {events.map((event) => {
+            return (
+              <li key={event.title}>
+                <h2 className={styles.eventTitle}>{event.title}</h2>
+                <EventMeta
+                  startDate={event.startDate}
+                  endDate={event.endDate}
+                  at={event.locationSlug}
+                  coordinates={event.location}
+                  link={
+                    event.locationLink ? event.locationLink.locationLink : null
+                  }
+                />
+                <div className={styles.description}>
+                  {event.description?.raw && renderRichText(event.description)}
+                </div>
+                <GatsbyImage
+                  alt={event.title}
+                  image={event.banner.gatsbyImageData}
+                  className={styles.banner}
+                />
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </Container>
   )
 }
 

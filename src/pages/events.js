@@ -8,8 +8,13 @@ import BambooFooter from '../components/bamboo-footer'
 import Seo from '../components/seo'
 import IFrameContainer from '../components/iframe-container'
 
+import * as styles from '../pages-css/events.module.css'
+import Container from '../components/container'
+import Carousel from '../components/carousel'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+
 const Events = ({ data }) => {
-  const { hero, events } = data
+  const { hero, events, photos } = data
   const today = new Date()
   const eventsAfterToday = events.nodes.filter(
     (event) => new Date(event.endDateTs) > today
@@ -19,15 +24,34 @@ const Events = ({ data }) => {
     <Layout>
       <Seo title="CSA Events" />
       <Hero hero={hero} />
-      <IFrameContainer
-        containerTitle="Events Calendar"
-        src="https://calendar.google.com/calendar/embed?src=csa.gatech%40gmail.com&ctz=America%2FNew_York&showTitle=0"
-        title="CSA Calendar"
-        style={{ border: 0 }}
-        frameBorder="0"
-        scrolling="no"
-      />
-      <div>picture carousel here</div>
+      <div className={styles.month}>
+        <IFrameContainer
+          containerTitle="Events Calendar"
+          src="https://calendar.google.com/calendar/embed?src=csa.gatech%40gmail.com&ctz=America%2FNew_York&showTitle=0"
+          title="CSA Calendar"
+          style={{ border: 0 }}
+          frameBorder="0"
+          scrolling="no"
+        />
+      </div>
+      <div className={styles.agenda}>
+        <IFrameContainer
+          containerTitle="Events Calendar"
+          src="https://calendar.google.com/calendar/embed?src=csa.gatech%40gmail.com&ctz=America%2FNew_York&showTitle=0&mode=AGENDA"
+          title="CSA Calendar"
+          style={{ border: 0 }}
+          frameBorder="0"
+          scrolling="no"
+          className={styles.agendaFrame}
+        />
+      </div>
+      <Container className={styles.photos}>
+        <h2>{photos.title}</h2>
+        <div className={styles.carousel}>
+          <Carousel images={photos.images} />
+        </div>
+        <div>{renderRichText(photos.description)}</div>
+      </Container>
       <EventsPreview events={eventsAfterToday} />
       <BambooFooter>
         <p>
@@ -52,7 +76,8 @@ export const pageQuery = graphql`
         raw
       }
       images {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+        title
       }
     }
     events: allContentfulEventPreview(
@@ -76,8 +101,20 @@ export const pageQuery = graphql`
           locationLink
         }
         banner {
-          gatsbyImageData(width: 500, height: 125, layout: FIXED)
+          gatsbyImageData(layout: CONSTRAINED, aspectRatio: 4.0)
         }
+      }
+    }
+    photos: contentfulGenericBlock(
+      id: { eq: "a3740379-a69c-555e-a1fa-47d0eb5073f8" }
+    ) {
+      title
+      description {
+        raw
+      }
+      images {
+        gatsbyImageData(placeholder: BLURRED, aspectRatio: 1.777)
+        title
       }
     }
   }

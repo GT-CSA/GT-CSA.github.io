@@ -38,6 +38,7 @@ export const pageQuery = graphql`
       subtitle
       images {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        title
       }
     }
   }

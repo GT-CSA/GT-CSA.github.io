@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 
-import * as styles from '../components/contact.module.css'
+import * as styles from '../pages-css/contact.module.css'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
@@ -60,6 +60,7 @@ export const pageQuery = graphql`
       }
       images {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        title
       }
     }
   }

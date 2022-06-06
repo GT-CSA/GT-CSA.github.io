@@ -3,11 +3,11 @@ import Container from './container'
 
 import * as styles from './iframe-container.module.css'
 
-const IFrameContainer = ({ containerTitle, title, ...props }) => {
+const IFrameContainer = ({ containerTitle, title, className, ...props }) => {
   return (
     <Container className={styles.container}>
       <h1>{containerTitle ? containerTitle : 'Title'}</h1>
-      <div className={styles.frameContainer}>
+      <div className={`${styles.frameContainer} ${className}`}>
         <iframe className={styles.frame} title={title} {...props}></iframe>
       </div>
     </Container>

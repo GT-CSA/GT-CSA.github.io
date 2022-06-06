@@ -1,9 +1,9 @@
 import React from 'react'
-import { GatsbyImage } from 'gatsby-plugin-image'
 
 import * as styles from './hero.module.css'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import Container from './container'
+import Carousel from './carousel'
 
 const Hero = ({ hero, children }) => {
   const { images, title, subtitle, description } = hero
@@ -13,10 +13,9 @@ const Hero = ({ hero, children }) => {
     <div>
       <div className={styles.hero}>
         {image && (
-          <GatsbyImage
-            className={styles.image}
-            alt={'CSA Gatech'}
-            image={image}
+          <Carousel
+            imageClass={styles.image}
+            images={images}
             imgStyle={{ objectPosition: 'bottom' }}
           />
         )}

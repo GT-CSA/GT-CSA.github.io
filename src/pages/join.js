@@ -31,6 +31,7 @@ export const pageQuery = graphql`
       }
       images {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        title
       }
     }
     contacts: allContentfulContactInformation {

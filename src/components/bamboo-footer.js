@@ -6,9 +6,9 @@ import * as styles from './bamboo-footer.module.css'
 
 const BambooFooter = ({ children }) => (
   <Container className={styles.container}>
-    <div className={styles.imageContainer}>
+    {/* <div className={styles.imageContainer}>
       <StaticImage src="../images/Bamboo.png" alt="bamboo" />
-    </div>
+    </div> */}
     {children}
   </Container>
 )

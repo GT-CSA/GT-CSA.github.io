@@ -1,5 +1,5 @@
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Container from './container'
 import Logo from '../images/Logo.inline.svg'
 
@@ -36,10 +36,16 @@ const BoardArray = ({ list }) => (
 
 const BoardCard = ({ person }) => {
   const [clicked, setClicked] = useState(false)
+  const cardRef = useRef(null)
+
+  const flipCard = () => {
+    setClicked(!clicked)
+    cardRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   return (
     <button
       className={`${styles.card} ${clicked ? styles.clicked : ''}`}
-      onClick={() => setClicked(!clicked)}
+      onClick={flipCard}
     >
       <div className={`${styles.backgroundImage}`}>
         {person.image ? (
@@ -49,9 +55,14 @@ const BoardCard = ({ person }) => {
         )}
       </div>
       <div className={`${styles.shade}  ${clicked ? styles.clicked : ''}`} />
-      <div className={`${styles.overflow} ${clicked ? styles.clicked : ''}`}>
-        <h3 className={styles.heading}>{person.name}</h3>
-        <h4 className={styles.heading}>{person.position}</h4>
+      <div
+        ref={cardRef}
+        className={`${styles.overflow} ${clicked ? styles.clicked : ''}`}
+      >
+        <div className={styles.headings}>
+          <h3 className={styles.heading}>{person.name}</h3>
+          <h4 className={styles.heading}>{person.position}</h4>
+        </div>
         <div className={styles.description}>
           {renderRichText(person.description)}
         </div>
