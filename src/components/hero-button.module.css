@@ -1,5 +1,5 @@
 .button {
-  font-size: var(--text-2xl);
+  font-size: var(--text-heading);
   background-color: rgba(105, 105, 105, 0.3);
   border: 1px solid var(--white);
   padding: var(--space-2xl) var(--space-3xl);

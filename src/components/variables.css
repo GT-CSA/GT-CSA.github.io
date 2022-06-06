@@ -57,6 +57,7 @@
   --text-lg: 1.125em;
   --text-xl: 1.25em;
   --text-2xl: 1.5em;
+  --text-2-5xl: 1.75em;
   --text-3xl: 2em;
   --text-4xl: 3em;
   --text-5xl: 4em;
@@ -75,6 +76,9 @@
   --text-lead: var(--text-xl);
   --text-prose: var(--text-md);
   --text-title: var(--text-3xl);
+  --text-hero: var(--text-4xl);
+  --text-heading: var(--text-lg);
+
   /* tracking */
   --text-prose-tracking: -0.011em;
 
@@ -95,15 +99,26 @@
 
 @media (min-width: 768px) {
   :root {
-    --text-lead: var(--text-2xl);
+    --text-lead: var(--text-2-5xl);
     --text-title: var(--text-4xl);
     --text-prose-tracking: -0.014em;
     --text-prose: var(--text-lg);
+    --text-heading: var(--text-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --text-lead: var(--text-3xl);
+    --size-max-nav: 144px;
+    --text-hero: var(--text-5xl);
+    --text-heading: var(--text-2xl);
   }
 }
 
 @media (min-width: 1280px) {
   :root {
     --size-max-nav: 144px;
+    --text-hero: var(--text-6xl);
   }
 }

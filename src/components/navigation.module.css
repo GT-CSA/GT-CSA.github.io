@@ -266,7 +266,7 @@
   }
 
   .title {
-    font-size: var(--text-lead);
+    font-size: var(--text-heading);
   }
 
   .subtitle {

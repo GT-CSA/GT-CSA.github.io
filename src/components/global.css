@@ -89,7 +89,22 @@ h6 {
   font-family: var(--font-header);
   font-weight: var(--semibold);
   line-height: var(--dense);
+}
+
+h1,
+h2,
+h3 {
   text-transform: uppercase;
+}
+
+h1 {
+  color: var(--primary);
+  text-align: center;
+  font-size: var(--text-lead);
+}
+
+p {
+  font-size: var(--text-prose);
 }
 
 a {

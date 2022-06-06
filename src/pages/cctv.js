@@ -28,9 +28,9 @@ const BlogIndex = ({ data }) => {
         <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
           From Our Blog
         </h1>
-        <div style={{ textAlign: 'center' }}>
+        <p style={{ textAlign: 'center' }}>
           <Link to="/cctv/blog">Click here to see all of our posts!</Link>
-        </div>
+        </p>
         <ArticlePreview posts={posts.nodes} />
       </Container>
       <GenericBlock

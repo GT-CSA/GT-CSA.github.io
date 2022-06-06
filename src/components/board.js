@@ -60,12 +60,12 @@ const BoardCard = ({ person }) => {
         ref={cardRef}
         className={`${styles.overflow} ${clicked ? styles.clicked : ''}`}
       >
-        <div className={styles.headings}>
+        <div className={styles.content}>
           <h3 className={styles.heading}>{person.name}</h3>
           <h4 className={styles.heading}>{person.position}</h4>
-        </div>
-        <div className={styles.description}>
-          {renderRichText(person.description)}
+          <div className={styles.description}>
+            {renderRichText(person.description)}
+          </div>
         </div>
       </div>
     </button>

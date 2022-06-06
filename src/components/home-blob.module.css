@@ -26,10 +26,13 @@
 
 .title {
   line-height: var(--loose);
+  font-size: var(--text-lead);
+  color: var(--black);
+  text-align: inherit;
 }
 
 .description {
-  font-size: var(--text-lg);
+  font-size: var(--text-prose);
   line-height: var(--loose);
   margin-bottom: var(--space-3xl);
 }
@@ -37,7 +40,7 @@
 .link {
   font-family: var(--font-header);
   font-weight: var(--semibold);
-  font-size: var(--text-lg);
+  font-size: var(--text-prose);
   color: var(--primary);
 }
 

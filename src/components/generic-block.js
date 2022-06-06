@@ -7,7 +7,7 @@ import * as styles from './generic-block.module.css'
 
 const GenericBlock = ({ title, description, imageData }) => (
   <Container>
-    <h2 className={styles.header}>{title}</h2>
+    <h1 className={styles.header}>{title}</h1>
     <div className={styles.content}>
       <div className={styles.image}>
         <GatsbyImage alt={title} image={imageData} />

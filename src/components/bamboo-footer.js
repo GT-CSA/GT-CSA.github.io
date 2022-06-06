@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image'
+// import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import Container from './container'
 

@@ -46,7 +46,7 @@ const Events = ({ data }) => {
         />
       </div>
       <Container className={styles.photos}>
-        <h2>{photos.title}</h2>
+        <h1>{photos.title}</h1>
         <div className={styles.carousel}>
           <Carousel images={photos.images} />
         </div>
