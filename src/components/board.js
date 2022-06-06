@@ -6,7 +6,7 @@ import Logo from '../images/Logo.inline.svg'
 import * as styles from './board.module.css'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const Board = ({ board }) => {
+const Board = ({ board, meta }) => {
   let i = 0
   for (; i < board.length; i++) {
     if (!board[i].exec) break
@@ -16,8 +16,9 @@ const Board = ({ board }) => {
   return (
     <Container>
       <h1 style={{ textAlign: 'center', color: 'var(--primary)' }}>
-        Meet Our Board
+        {meta.title ? meta.title : 'Meet Our Board'}
       </h1>
+      <div>{renderRichText(meta.description)}</div>
       <div>
         <BoardArray list={exec} />
         <div className={styles.divider} />

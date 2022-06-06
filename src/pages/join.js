@@ -7,12 +7,12 @@ import ContactInformations from '../components/contact-informations'
 import Board from '../components/board'
 
 const Join = ({ data }) => {
-  const { hero, contacts, board } = data
+  const { hero, contacts, board, boardMeta } = data
   return (
     <Layout>
       <Hero hero={hero} />
       <ContactInformations contacts={contacts.nodes} />
-      <Board board={board.nodes} />
+      <Board board={board.nodes} meta={boardMeta} />
     </Layout>
   )
 }
@@ -59,6 +59,14 @@ export const pageQuery = graphql`
         image {
           gatsbyImageData(aspectRatio: 0.78125, layout: CONSTRAINED)
         }
+      }
+    }
+    boardMeta: contentfulGenericBlock(
+      id: { eq: "afc5a0f9-02e9-542c-a61f-c34bcaf178be" }
+    ) {
+      title
+      description {
+        raw
       }
     }
   }
