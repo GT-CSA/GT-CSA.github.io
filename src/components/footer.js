@@ -5,9 +5,33 @@ import Instagram from '../images/instagram.inline.svg'
 import YouTube from '../images/youtube.inline.svg'
 import Facebook from '../images/facebook.inline.svg'
 import Venmo from '../images/venmo.inline.svg'
+import GitHub from '../images/github.inline.svg'
 
 import * as styles from './footer.module.css'
 import { HomeIcon, NAVS } from './navigation'
+
+const SOCIALS = [
+  {
+    link: 'https://www.instagram.com/csa_gatech/',
+    icon: () => <Instagram />,
+  },
+  {
+    link: 'https://www.youtube.com/channel/UCrEkC7eF2nj04VaGGVDJI8A',
+    icon: () => <YouTube />,
+  },
+  {
+    link: 'https://www.facebook.com/gatechcsa',
+    icon: () => <Facebook />,
+  },
+  {
+    link: 'https://venmo.com/yw_yuqing',
+    icon: () => <Venmo />,
+  },
+  {
+    link: 'https://github.com/GT-CSA/GT-CSA.github.io',
+    icon: () => <GitHub />,
+  },
+]
 
 const Footer = () => (
   <footer>
@@ -39,42 +63,17 @@ const Footer = () => (
             <div>
               <h3>Follow Us</h3>
               <ul>
-                <li>
-                  <a
-                    href="https://www.instagram.com/csa_gatech/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Instagram />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/channel/UCrEkC7eF2nj04VaGGVDJI8A"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <YouTube />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/gatechcsa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Facebook />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://venmo.com/yw_yuqing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Venmo />
-                  </a>
-                </li>
+                {SOCIALS.map((social) => (
+                  <li>
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {social.icon()}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
