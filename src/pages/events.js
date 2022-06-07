@@ -56,7 +56,7 @@ const Events = ({ data }) => {
       <BambooFooter>
         <p>
           Looking for past events? See event recap posts{' '}
-          <Link to="/cctv">at our blog here!</Link>
+          <Link to="/cctv/blog">at our blog here!</Link>
         </p>
       </BambooFooter>
     </Layout>
