@@ -5,16 +5,16 @@ import * as styles from './navigation.module.css'
 import Logo from '../images/Logo.inline.svg'
 import Hamburger from '../images/Hamburger.inline.svg'
 
-const Navigation = () => {
-  const navs = [
-    { name: 'Home', slug: '' },
-    { name: 'CSA Events', slug: 'events' },
-    { name: 'China Care', slug: 'chinacare' },
-    { name: 'CCTV', slug: 'cctv' },
-    { name: 'Get Involved', slug: 'join' },
-    { name: 'Contact Us', slug: 'contact' },
-  ]
+export const NAVS = [
+  { name: 'Home', slug: '' },
+  { name: 'CSA Events', slug: 'events' },
+  { name: 'China Care', slug: 'chinacare' },
+  { name: 'CCTV', slug: 'cctv' },
+  { name: 'Get Involved', slug: 'join' },
+  { name: 'Contact Us', slug: 'contact' },
+]
 
+const Navigation = () => {
   const [dropped, setDropped] = useState(false)
 
   const toggleOverflow = (isDropped) => {
@@ -43,49 +43,45 @@ const Navigation = () => {
       >
         <div className={styles.bar}>
           <HomeIcon />
-          <div className={styles.hamburgerContainer}>
-            <button
-              className={`${styles.hamburger} ${dropped ? styles.dropped : ''}`}
-              onClick={() => {
-                setDropped(!dropped)
-                toggleOverflow(!dropped)
-              }}
-              role="menu"
-            >
-              <Hamburger />
-            </button>
-          </div>
+        </div>
+        <div className={styles.hamburgerContainer}>
+          <button
+            className={`${styles.hamburger} ${dropped ? styles.dropped : ''}`}
+            onClick={() => {
+              setDropped(!dropped)
+              toggleOverflow(!dropped)
+            }}
+            role="menu"
+          >
+            <Hamburger />
+          </button>
         </div>
         <ul className={`${styles.navigation} ${dropped ? styles.dropped : ''}`}>
           <li className={styles.container}>
             <HomeIcon />
           </li>
-          {navs.map((nav, i) => (
-            <NavButton
-              key={nav.slug}
-              name={nav.name}
-              slug={nav.slug}
-              start={i === 0}
-              end={i === navs.length - 1}
-            />
+          {NAVS.map((nav, i) => (
+            <NavButton key={nav.slug} name={nav.name} slug={nav.slug} />
           ))}
-          <div
-            className={`${styles.gradient} ${dropped ? styles.dropped : ''}`}
-          />
         </ul>
       </nav>
+      <div className={`${styles.gradient} ${dropped ? styles.dropped : ''}`} />
     </div>
   )
 }
 
-const HomeIcon = () => (
+export const HomeIcon = ({ logo = true, big = false }) => (
   <Link to="/" className={`${styles.logoLink}`}>
-    <div className={`${styles.logoWrapper} `}>
-      <Logo className={styles.logo} />
-    </div>
+    {logo && (
+      <div className={`${styles.logoWrapper} `}>
+        <Logo className={styles.logo} />
+      </div>
+    )}
     <span className={styles.navigationItem}>
-      <span className={styles.title}>Georgia Tech</span>
-      <span className={styles.subtitle}>
+      <span className={`${styles.title} ${big ? styles.big : ''}`}>
+        Georgia Tech
+      </span>
+      <span className={`${styles.subtitle} ${big ? styles.big : ''}`}>
         Chinese
         <br />
         Student
@@ -96,7 +92,7 @@ const HomeIcon = () => (
   </Link>
 )
 
-const NavButton = ({ name, slug, start, end }) => {
+const NavButton = ({ name, slug }) => {
   return (
     <Link
       to={`/${slug}`}

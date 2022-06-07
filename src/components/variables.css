@@ -111,7 +111,6 @@
 @media (min-width: 1024px) {
   :root {
     --text-lead: var(--text-3xl);
-    --size-max-nav: 144px;
     --text-hero: var(--text-5xl);
     --text-heading: var(--text-2xl);
   }
