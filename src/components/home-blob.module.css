@@ -41,9 +41,10 @@
 }
 
 .image-container {
-  width: 65%;
+  width: 60%;
+  max-width: 375px;
   overflow: hidden;
-  margin-bottom: -20px;
+  margin-bottom: -5%;
 }
 
 .image {
@@ -52,6 +53,14 @@
 
 .onLeft .image {
   margin-left: -15%;
+}
+
+@media (min-width: 768px) {
+  .image-container {
+    width: 65%;
+    margin-bottom: -7%;
+    max-width: 450px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -78,6 +87,7 @@
   .image-container {
     margin-bottom: 0;
     width: 50%;
+    max-width: none;
   }
 
   .onLeft .text-container {
