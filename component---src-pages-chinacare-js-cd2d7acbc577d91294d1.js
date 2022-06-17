@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgeorgia_tech_chinese_student_association_website=self.webpackChunkgeorgia_tech_chinese_student_association_website||[]).push([[185],{3849:function(e,t,i){i.r(t);var n=i(7294),s=i(8678),a=i(4108);t.default=function(){return n.createElement(s.Z,null,n.createElement(a.Z,null,"This page is under construction! Please visit the"," ",n.createElement("a",{href:"https://chinacaregt.wixsite.com/home"},"old China Care site here!")))}}}]);
+//# sourceMappingURL=component---src-pages-chinacare-js-cd2d7acbc577d91294d1.js.map
