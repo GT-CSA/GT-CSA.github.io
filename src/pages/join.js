@@ -13,7 +13,11 @@ const Join = ({ data }) => {
     <Layout>
       <Hero
         hero={hero}
-        popup={<BoardApplicationBlob meta={boardApplicationsOpen} />}
+        popup={
+          boardApplicationsOpen.active ? (
+            <BoardApplicationBlob meta={boardApplicationsOpen} />
+          ) : null
+        }
       />
       <ContactInformations contacts={contacts.nodes} />
       <Board board={board.nodes} meta={boardMeta} />
