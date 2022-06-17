@@ -7,6 +7,11 @@
   max-width: var(--size-max-width);
   min-height: 200px;
   position: relative;
+  z-index: 1;
+}
+
+.hero.popped {
+  margin-bottom: 0;
 }
 
 .image {

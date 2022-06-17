@@ -33,52 +33,54 @@ const SOCIALS = [
   },
 ]
 
-const Footer = () => (
-  <footer>
-    <Container>
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <HomeIcon logo={false} big />
+export const FooterContent = ({ sitemap = true }) => (
+  <div className={styles.container}>
+    <div className={styles.logo}>
+      <HomeIcon logo={false} big />
+    </div>
+    <div className={styles.content}>
+      {sitemap && (
+        <ul>
+          {NAVS.map((nav) => (
+            <li key={nav.slug}>
+              <Link to={`/${nav.slug}`}>{nav.name}</Link>
+              {nav.slug === `cctv` && (
+                <ul>
+                  <li>
+                    <Link to={'/cctv/blog'}>Blog</Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className={styles.misc}>
+        <div>
+          <h3>Email Us</h3>
+          <a href="mailto: csa.gatech@gmail.com">csa.gatech@gmail.com</a>
         </div>
-        <div className={styles.content}>
+        <div>
+          <h3>Follow Us</h3>
           <ul>
-            {NAVS.map((nav) => (
-              <li key={nav.slug}>
-                <Link to={`/${nav.slug}`}>{nav.name}</Link>
-                {nav.slug === `cctv` && (
-                  <ul>
-                    <li>
-                      <Link to={'/cctv/blog'}>Blog</Link>
-                    </li>
-                  </ul>
-                )}
+            {SOCIALS.map((social) => (
+              <li>
+                <a href={social.link} target="_blank" rel="noopener noreferrer">
+                  {social.icon()}
+                </a>
               </li>
             ))}
           </ul>
-          <div className={styles.misc}>
-            <div>
-              <h3>Email Us</h3>
-              <a href="mailto: csa.gatech@gmail.com">csa.gatech@gmail.com</a>
-            </div>
-            <div>
-              <h3>Follow Us</h3>
-              <ul>
-                {SOCIALS.map((social) => (
-                  <li>
-                    <a
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {social.icon()}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+  </div>
+)
+
+const Footer = () => (
+  <footer>
+    <Container>
+      <FooterContent />
     </Container>
   </footer>
 )

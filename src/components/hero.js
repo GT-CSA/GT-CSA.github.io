@@ -5,13 +5,12 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import Container from './container'
 import Carousel from './carousel'
 
-const Hero = ({ hero, children }) => {
+const Hero = ({ hero, popup, children }) => {
   const { images, title, subtitle, description } = hero
-  // todo: change to carousel
   const image = images[0].gatsbyImageData
   return (
     <div>
-      <div className={styles.hero}>
+      <div className={`${styles.hero} ${popup ? styles.popped : ''}`}>
         {image && (
           <Carousel
             imageClass={styles.image}
@@ -28,6 +27,7 @@ const Hero = ({ hero, children }) => {
           </div>
         </div>
       </div>
+      {popup && popup}
       {description && (
         <Container className={styles.description}>
           {renderRichText(description)}

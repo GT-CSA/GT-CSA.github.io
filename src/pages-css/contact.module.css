@@ -45,3 +45,27 @@
     display: block;
   }
 }
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.footer {
+  display: none;
+}
+
+@media (min-width: 1600px) {
+  .footer {
+    display: block;
+  }
+}

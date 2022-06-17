@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Container = ({ className, children, as = 'div' }) => {
+const Container = ({ className, style, children, as = 'div' }) => {
   const Tag = as
 
   return (
@@ -10,6 +10,7 @@ const Container = ({ className, children, as = 'div' }) => {
         maxWidth: 'var(--size-max-width)',
         margin: '0 auto',
         padding: 'var(--space-2xl) var(--size-x-content)',
+        ...style,
       }}
     >
       {children}

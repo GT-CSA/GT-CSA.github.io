@@ -7,13 +7,14 @@ import Hero from '../components/hero'
 import * as styles from '../pages-css/contact.module.css'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { FooterContent } from '../components/footer'
 
 const Contact = ({ data }) => {
   //https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
   const { hero } = data
   const { description, ...rest } = hero
   return (
-    <Layout>
+    <Layout footer={false}>
       <div className={styles.container}>
         <div className={styles.mobileHero}>
           <Hero hero={rest} collapsible />
@@ -26,20 +27,26 @@ const Contact = ({ data }) => {
           />
           <div className={styles.shade} />
         </div>
-        <div>
-          <h1 className={`${styles.desktopHero}`}>{hero.title}</h1>
-          <div>{renderRichText(description)}</div>
-          <form className={styles.form}>
-            <input type="text" id="name" name="name" placeholder="Name" />
-            <input type="email" id="email" name="email" placeholder="Email" />
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Message"
-            ></textarea>
+        <div className={styles.contentContainer}>
+          <div className={styles.content}>
+            <h1 className={`${styles.desktopHero}`}>{hero.title}</h1>
+            <div>{renderRichText(description)}</div>
+            <form className={styles.form}>
+              <input type="text" id="name" name="name" placeholder="Name" />
+              <input type="email" id="email" name="email" placeholder="Email" />
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+              ></textarea>
 
-            <input type="submit" value="Submit" />
-          </form>
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+
+          <div className={styles.footer}>
+            <FooterContent sitemap={false} />
+          </div>
         </div>
       </div>
     </Layout>

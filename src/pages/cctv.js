@@ -8,16 +8,20 @@ import ArticlePreview from '../components/article-preview'
 import Container from '../components/container'
 import IFrameContainer from '../components/iframe-container'
 import GenericBlock from '../components/generic-block'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+
+import * as styles from '../pages-css/cctv.module.css'
 
 const BlogIndex = ({ data }) => {
-  const { posts, hero, convo } = data
+  const { posts, hero, convo, youtube, blog } = data
 
   return (
     <Layout>
       <Seo title="CCTV" />
       <Hero hero={hero} />
       <IFrameContainer
-        containerTitle="See Our Latest Video Here"
+        containerTitle={youtube.title}
+        containerDescription={youtube.description}
         src="https://www.youtube.com/embed/videoseries?list=PLUmMiMpeUbtBc2U2RKD5efE293nPwiud1"
         title="CSA Youtube Full Playlist"
         frameBorder="0"
@@ -26,11 +30,17 @@ const BlogIndex = ({ data }) => {
       />
       <Container>
         <h1 style={{ color: 'var(--primary)', textAlign: 'center' }}>
-          From Our Blog
+          {blog.title ? blog.title : 'From Our Blog'}
         </h1>
-        <p style={{ textAlign: 'center' }}>
-          <Link to="/cctv/blog">Click here to see all of our posts!</Link>
-        </p>
+        <div className={styles.centeredText}>
+          {blog.description ? (
+            renderRichText(blog.description)
+          ) : (
+            <p>
+              <Link to="/cctv/blog">Click here to see all of our posts!</Link>
+            </p>
+          )}
+        </div>
         <ArticlePreview posts={posts.nodes} />
       </Container>
       <GenericBlock
@@ -90,6 +100,22 @@ export const pageQuery = graphql`
       }
       images {
         gatsbyImageData
+      }
+    }
+    blog: contentfulGenericBlock(
+      id: { eq: "a8c703c2-33c7-550e-9bc7-24965a51ed5c" }
+    ) {
+      title
+      description {
+        raw
+      }
+    }
+    youtube: contentfulGenericBlock(
+      id: { eq: "6f705051-7eef-5463-8832-e9c1034d7b25" }
+    ) {
+      title
+      description {
+        raw
       }
     }
   }

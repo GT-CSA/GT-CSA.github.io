@@ -5,13 +5,13 @@ import './global.css'
 import Seo from './seo'
 import Navigation from './navigation'
 import Footer from './footer'
-const Template = ({ children }) => {
+const Template = ({ footer = true, children }) => {
   return (
     <>
       <Seo />
       <Navigation />
       <main>{children}</main>
-      <Footer />
+      {footer && <Footer />}
     </>
   )
 }

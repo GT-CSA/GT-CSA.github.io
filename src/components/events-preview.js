@@ -6,13 +6,16 @@ import * as styles from './events-preview.module.css'
 import Container from './container'
 import Tags from './tags'
 
-const EventsPreview = ({ events = [] }) => {
+const EventsPreview = ({ events = [], title, description }) => {
   if (!Array.isArray(events)) return null
 
   return (
     <Container>
       <div className={styles.container}>
-        <h2 className={styles.title}>Upcoming CSA Events</h2>
+        <h2 className={styles.title}>
+          {title ? title : 'Upcoming CSA Events'}
+        </h2>
+        {description && <div>{renderRichText(description)}</div>}
         <ul className={styles.eventList}>
           {events.length === 0 && <p>There are no listed events!</p>}
           {events.map((event) => {

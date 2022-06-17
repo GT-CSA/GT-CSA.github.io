@@ -4,13 +4,17 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ContactInformations from '../components/contact-informations'
+import BoardApplicationBlob from '../components/board-application-blob'
 import Board from '../components/board'
 
 const Join = ({ data }) => {
-  const { hero, contacts, board, boardMeta } = data
+  const { hero, contacts, board, boardMeta, boardApplicationsOpen } = data
   return (
     <Layout>
-      <Hero hero={hero} />
+      <Hero
+        hero={hero}
+        popup={<BoardApplicationBlob meta={boardApplicationsOpen} />}
+      />
       <ContactInformations contacts={contacts.nodes} />
       <Board board={board.nodes} meta={boardMeta} />
     </Layout>
@@ -65,6 +69,21 @@ export const pageQuery = graphql`
       id: { eq: "afc5a0f9-02e9-542c-a61f-c34bcaf178be" }
     ) {
       title
+      description {
+        raw
+      }
+    }
+    boardApplicationsOpen: contentfulToggleableContent(
+      id: { eq: "88801233-bffd-559f-b204-2b4f6cc856cc" }
+    ) {
+      active
+      title
+      applicationLink {
+        applicationLink
+      }
+      positionDescriptionLink {
+        positionDescriptionLink
+      }
       description {
         raw
       }

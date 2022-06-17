@@ -56,7 +56,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  background-color: var(--white);
 }
 
 html * {
