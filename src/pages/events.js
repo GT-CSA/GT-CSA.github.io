@@ -30,10 +30,13 @@ const Events = ({ data }) => {
       />
       <Container className={styles.photos}>
         <h1>{photos.title}</h1>
+        {photos.subtitle && (
+          <p className={styles.photosSubtitle}>{photos.subtitle}</p>
+        )}
         <div className={styles.carousel}>
           <Carousel images={photos.images} />
         </div>
-        <div>{renderRichText(photos.description)}</div>
+        {photos.description && <div>{renderRichText(photos.description)}</div>}
       </Container>
       <div className={styles.month}>
         <IFrameContainer
@@ -108,6 +111,7 @@ export const pageQuery = graphql`
       id: { eq: "a3740379-a69c-555e-a1fa-47d0eb5073f8" }
     ) {
       title
+      subtitle
       description {
         raw
       }
