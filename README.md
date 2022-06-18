@@ -48,7 +48,7 @@ Deployment is done through the [GitHub Pages](https://github.com/marketplace/act
 
 The deployment workflow is also tied to a Contentful update webhook action, meaning whenever anything in the Gerogia Tech CSA Contentful space is updated, the site will redeploy and reflect those changes. For actions run by the webhook, it will always take more than 5 minutes. This is done in order to wait for Contentful's API to properly reflect any changes.
 
-The Contenful hook requires the use of another GitHub PAT. In case the hook does not trigger or fails any actions, please check if the PAT has expired, and regenerate it in case it has. Please note that this PAT is not the same as the GT Enterprise PAT, but a personal PAT with rights to this repository.
+The Contenful hook requires the use of another GitHub PAT. In case the hook does not trigger or fails any actions, please check if the PAT has expired, and regenerate it in case it has. Please note that this PAT is not the same as the GT Enterprise PAT, but a personal PAT with rights to this repository. This PAT is used in the `Authorization` header of the webhook request, and has the format `Bearer [PAT]`.
 
 ## Contribution
 
