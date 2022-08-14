@@ -30,8 +30,12 @@ const Contact = ({ contact }) => {
         />
       </a>
       <div>
-        <h3>{contact.platform}</h3>
-        {renderRichText(contact.description)}
+        <h3>
+          <a href={contact.link.link} target="_blank" rel="noopener noreferrer">
+            {contact.platform}
+          </a>
+        </h3>
+        {contact.description?.raw ? renderRichText(contact.description) : ''}
       </div>
     </div>
   )

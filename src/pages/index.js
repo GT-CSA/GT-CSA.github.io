@@ -32,9 +32,11 @@ class RootIndex extends React.Component {
             blobOnLeft={blob.blobOnLeft}
           />
         ))}
-        <Container className={styles.footer}>
-          {renderRichText(footerText.description)}
-        </Container>
+        {footerText.description?.raw && (
+          <Container className={styles.footer}>
+            {renderRichText(footerText.description)}
+          </Container>
+        )}
       </Layout>
     )
   }

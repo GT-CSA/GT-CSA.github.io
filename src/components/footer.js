@@ -12,22 +12,27 @@ import { HomeIcon, NAVS } from './navigation'
 
 const SOCIALS = [
   {
+    key: 'instagram',
     link: 'https://www.instagram.com/csa_gatech/',
     icon: () => <Instagram />,
   },
   {
+    key: 'youtube',
     link: 'https://www.youtube.com/channel/UCrEkC7eF2nj04VaGGVDJI8A',
     icon: () => <YouTube />,
   },
   {
+    key: 'facebook',
     link: 'https://www.facebook.com/gatechcsa',
     icon: () => <Facebook />,
   },
   {
+    key: 'venmo',
     link: 'https://venmo.com/yw_yuqing',
     icon: () => <Venmo />,
   },
   {
+    key: 'github',
     link: 'https://github.com/GT-CSA/GT-CSA.github.io',
     icon: () => <GitHub />,
   },
@@ -64,7 +69,7 @@ export const FooterContent = ({ sitemap = true }) => (
           <h3>Follow Us</h3>
           <ul>
             {SOCIALS.map((social) => (
-              <li>
+              <li key={social.key}>
                 <a href={social.link} target="_blank" rel="noopener noreferrer">
                   {social.icon()}
                 </a>

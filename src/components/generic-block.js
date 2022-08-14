@@ -12,7 +12,7 @@ const GenericBlock = ({ title, description, imageData }) => (
       <div className={styles.image}>
         <GatsbyImage alt={title} image={imageData} />
       </div>
-      <div>{renderRichText(description)}</div>
+      {description?.raw && <div>{renderRichText(description)}</div>}
     </div>
   </Container>
 )

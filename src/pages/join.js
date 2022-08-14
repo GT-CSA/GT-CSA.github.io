@@ -56,7 +56,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    board: allContentfulBoardMember(sort: { fields: exec, order: DESC }) {
+    board: allContentfulBoardMember(
+      sort: { fields: [exec, priority], order: [DESC, DESC] }
+    ) {
       nodes {
         name
         description {

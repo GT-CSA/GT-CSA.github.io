@@ -15,7 +15,7 @@ const EventsPreview = ({ events = [], title, description }) => {
         <h2 className={styles.title}>
           {title ? title : 'Upcoming CSA Events'}
         </h2>
-        {description && <div>{renderRichText(description)}</div>}
+        {description?.raw && <div>{renderRichText(description)}</div>}
         <ul className={styles.eventList}>
           {events.length === 0 && <p>There are no listed events!</p>}
           {events.map((event) => {

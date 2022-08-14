@@ -18,7 +18,7 @@ const Board = ({ board, meta }) => {
       <h1 style={{ textAlign: 'center', color: 'var(--primary)' }}>
         {meta.title ? meta.title : 'Meet Our Board'}
       </h1>
-      <div>{renderRichText(meta.description)}</div>
+      {meta.description?.raw && <div>{renderRichText(meta.description)}</div>}
       <div>
         <BoardArray list={exec} />
         <div className={styles.divider} />
@@ -64,9 +64,11 @@ const BoardCard = ({ person }) => {
         <div className={styles.content}>
           <h3 className={styles.heading}>{person.name}</h3>
           <h4 className={styles.heading}>{person.position}</h4>
-          <div className={styles.description}>
-            {renderRichText(person.description)}
-          </div>
+          {person.description?.raw && (
+            <div className={styles.description}>
+              {renderRichText(person.description)}
+            </div>
+          )}
         </div>
       </div>
     </button>
