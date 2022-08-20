@@ -37,11 +37,13 @@ const EventsPreview = ({ events = [], title, description }) => {
                 <div className={styles.tags}>
                   <Tags tags={event.tags} />
                 </div>
-                <GatsbyImage
-                  alt={event.title}
-                  image={event.banner.gatsbyImageData}
-                  className={styles.banner}
-                />
+                {event.banner?.gatsbyImageData && (
+                  <GatsbyImage
+                    alt={event.title}
+                    image={event.banner.gatsbyImageData}
+                    className={styles.banner}
+                  />
+                )}
               </li>
             )
           })}
